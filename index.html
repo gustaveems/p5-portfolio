@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUSTAVE SOULAS // PHANTOM PORTFOLIO</title>
+  <meta name="description" content="The Phantom Portfolio of Gustave Soulas — Computer Science student, builder, and app manager. Status, Missions, Equipment, Confidants and a Calling Card.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bungee&family=Kanit:ital,wght@0,600;0,800;1,600;1,800;1,900&family=Playfair+Display:ital,wght@1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ CALLING CARD / INTRO OVERLAY ============ -->
+  <div id="intro" class="intro" role="dialog" aria-label="Intro screen">
+    <div class="intro__halftone"></div>
+    <div class="intro__slash"></div>
+    <div class="intro__card">
+      <p class="intro__from">FROM</p>
+      <h1 class="intro__name"><span class="ransom ransom--serif">GUSTAVE</span> <span class="ransom ransom--block">SOULAS</span></h1>
+      <p class="intro__msg">The distorted desires of your inbox will be stolen.<br>You have received a Calling Card.</p>
+      <button id="enterBtn" class="btn btn--red intro__btn" data-sfx="confirm">
+        TAKE YOUR TIME <span class="key">X</span>
+      </button>
+    </div>
+    <p class="intro__hint">click anywhere / press X to enter</p>
+  </div>
+
+  <!-- ============ FULLSCREEN SLASH TRANSITION ============ -->
+  <div id="slashWipe" class="slash-wipe" aria-hidden="true">
+    <span class="slash-wipe__word"></span>
+  </div>
+
+  <!-- ============ NAVIGATION (PAUSE MENU) ============ -->
+  <header class="topbar">
+    <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false" data-sfx="hover">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="#hero" class="topbar__logo" data-nav data-sfx="hover">P5<span>.</span>PORTFOLIO</a>
+    <button id="soundToggle" class="sound-toggle" aria-label="Toggle sound" data-sfx="none">♪</button>
+  </header>
+
+  <nav id="menu" class="menu" aria-label="Main navigation">
+    <div class="menu__halftone"></div>
+    <ul class="menu__list">
+      <li><a href="#status"    data-nav data-sfx="hover"><em>01</em> STATUS<em class="jp">ステータス</em></a></li>
+      <li><a href="#missions"  data-nav data-sfx="hover"><em>02</em> MISSIONS<em class="jp">ミッション</em></a></li>
+      <li><a href="#equipment" data-nav data-sfx="hover"><em>03</em> EQUIPMENT<em class="jp">装備</em></a></li>
+      <li><a href="#confidants" data-nav data-sfx="hover"><em>04</em> CONFIDANTS<em class="jp">仲間 · SOCIAL LINK</em></a></li>
+      <li><a href="#callingcard" data-nav data-sfx="hover"><em>05</em> CALLING CARD<em class="jp">予告状</em></a></li>
+    </ul>
+    <p class="menu__foot">PRESS <span class="key key--dark">B</span> TO CLOSE</p>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <main>
+  <section id="hero" class="hero">
+    <div class="hero__ransombg" aria-hidden="true">
+      <span style="--x:4%;--y:8%;--r:-14deg">SKILL</span>
+      <span style="--x:26%;--y:2%;--r:8deg">ITEM</span>
+      <span style="--x:52%;--y:10%;--r:-6deg">EQUIP</span>
+      <span style="--x:78%;--y:4%;--r:12deg">PERSONA</span>
+      <span style="--x:8%;--y:78%;--r:10deg">STATUS</span>
+      <span style="--x:38%;--y:88%;--r:-8deg">QUEST</span>
+      <span style="--x:66%;--y:82%;--r:6deg">CALENDAR</span>
+      <span style="--x:86%;--y:70%;--r:-12deg">SYSTEM</span>
+    </div>
+
+    <div class="hero__inner">
+      <p class="hero__kicker reveal">DUAL DEGREE @ IE UNIVERSITY · MADRID — CODE NAME:</p>
+      <h2 class="hero__name reveal" style="--d:.08s">
+        <span class="hero__name-g">GUSTAVE</span>
+        <span class="hero__name-s">SOULAS<sup>™</sup></span>
+      </h2>
+      <p class="hero__codename reveal" style="--d:.16s"><span>“PHANTOM DEV”</span></p>
+      <p class="hero__line reveal" style="--d:.24s">Computer Science-bound builder. I steal your attention with
+        <b>Python</b>, <b>AI pipelines</b>, and <b>shipping things</b>.</p>
+
+      <div class="hero__chips reveal" style="--d:.32s">
+        <div class="chip"><em>LV</em><b>20</b></div>
+        <div class="chip"><em>ARCANA</em><b>MAGICIAN</b></div>
+        <div class="chip chip--hp"><em>HP</em><div class="bar bar--sm"><i style="--v:92%"></i></div></div>
+        <div class="chip chip--sp"><em>SP</em><div class="bar bar--sm"><i style="--v:78%"></i></div></div>
+      </div>
+
+      <div class="hero__actions reveal" style="--d:.4s">
+        <a href="#missions" class="btn btn--red" data-nav data-sfx="confirm">VIEW MISSIONS</a>
+        <a href="#callingcard" class="btn btn--ghost" data-nav data-sfx="confirm">SEND CALLING CARD</a>
+      </div>
+    </div>
+
+    <div class="hero__hud" aria-hidden="true">
+      <div class="hud__date"><em id="hudDate">SEP 20</em><span id="hudCity">MADRID, ES</span></div>
+      <div class="hud__wallet"><em>¥</em><span id="hudYen">∞</span></div>
+    </div>
+    <div class="hero__prompt"><span class="key">X</span> PRESS TO CONTINUE</div>
+    <div class="hero__scrollhint" aria-hidden="true">▼</div>
+  </section>
+
+  <!-- ============ STATUS ============ -->
+  <section id="status" class="section section--alt">
+    <header class="sec-head reveal">
+      <p class="sec-head__jp">ステータス</p>
+      <h2 class="sec-head__title">STATUS</h2>
+      <p class="sec-head__sub">// skills · proficiency · growth</p>
+    </header>
+
+    <div class="status-grid">
+      <div class="panel panel--slash reveal" style="--d:.1s">
+        <h3 class="panel__title">PARAMETERS</h3>
+        <ul class="stats">
+          <li><em>PYTHON</em><div class="bar"><i style="--v:88%"></i><b>88</b></div></li>
+          <li><em>AI / LLM WORKFLOWS</em><div class="bar"><i style="--v:85%"></i><b>85</b></div></li>
+          <li><em>API INTEGRATION</em><div class="bar"><i style="--v:80%"></i><b>80</b></div></li>
+          <li><em>WEB / JAVASCRIPT</em><div class="bar"><i style="--v:72%"></i><b>72</b></div></li>
+          <li><em>DATA ANALYSIS</em><div class="bar"><i style="--v:78%"></i><b>78</b></div></li>
+          <li><em>PRODUCT MGMT</em><div class="bar"><i style="--v:75%"></i><b>75</b></div></li>
+          <li><em>MS OFFICE / MAC</em><div class="bar"><i style="--v:95%"></i><b>95</b></div></li>
+          <li><em>LEADERSHIP</em><div class="bar"><i style="--v:90%"></i><b>90</b></div></li>
+        </ul>
+      </div>
+
+      <div class="panel panel--slash reveal" style="--d:.2s">
+        <h3 class="panel__title">SOCIAL LINKS <span class="rank">★</span></h3>
+        <ul class="links">
+          <li><em>FRENCH</em><span class="stars" data-rank="5">★★★★★</span><b>FLUENT · NATIVE</b></li>
+          <li><em>ENGLISH</em><span class="stars" data-rank="5">★★★★★</span><b>FLUENT</b></li>
+          <li><em>SPANISH</em><span class="stars" data-rank="4">★★★★</span><b>PROFICIENT</b></li>
+          <li><em>CHINESE</em><span class="stars" data-rank="3">★★★</span><b>PROFICIENT</b></li>
+          <li><em>KABYLE</em><span class="stars" data-rank="3">★★★</span><b>PROFICIENT</b></li>
+        </ul>
+        <div class="divider-slash"></div>
+        <h3 class="panel__title">PERSONA REGISTRY <span class="jp-inline">学歴</span></h3>
+        <ul class="edu">
+          <li>
+            <em>IE UNIVERSITY — MADRID</em>
+            <b>Dual Bachelor · Philosophy, Politics, Law &amp; Economics + Data &amp; Business Analytics</b>
+            <span>EXPECTED 2028 · FELLOWSHIP TRACK</span>
+          </li>
+          <li>
+            <em>NAN SCHOOL — DUBAI</em>
+            <b>International Baccalaureate</b>
+            <span>35 PTS PREDICTED · GRAD JUNE 2024</span>
+          </li>
+          <li>
+            <em>LFIS — SHANGHAI</em>
+            <b>French International Baccalaureate (Brevet → BAC track)</b>
+            <span>AUG 2011 — JUNE 2022</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MISSIONS ============ -->
+  <section id="missions" class="section">
+    <header class="sec-head reveal">
+      <p class="sec-head__jp">ミッション</p>
+      <h2 class="sec-head__title">MISSIONS<span class="sec-head__small">/ PALACES CLEARED</span></h2>
+      <p class="sec-head__sub">// experience · projects · treasure obtained</p>
+    </header>
+
+    <div class="missions">
+      <article class="mission reveal" style="--d:.1s">
+        <div class="mission__num">01</div>
+        <div class="mission__body">
+          <p class="mission__meta">LEFTY — PARIS, FR · MAR 2023 · <b>INTERN</b></p>
+          <h3 class="mission__title">THE SOCIAL ANALYTICS PALACE</h3>
+          <ul>
+            <li>Contributed to <b>influencer categorization</b> using ChatGPT &amp; Instagram analysis for a luxury-brand portfolio.</li>
+            <li>Built a <b>YouTube Data API</b> program to auto-detect harmful video content.</li>
+            <li>Categorized football teams &amp; players for Lefty's luxury client pipeline.</li>
+          </ul>
+          <div class="mission__tags"><span>PYTHON</span><span>OPENAI</span><span>YOUTUBE API</span><span>IG DATA</span></div>
+        </div>
+        <div class="mission__stamp">TREASURE<br>OBTAINED</div>
+      </article>
+
+      <article class="mission reveal" style="--d:.18s">
+        <div class="mission__num">02</div>
+        <div class="mission__body">
+          <p class="mission__meta">FOTOGRAFISKA — SHANGHAI, CN · MAY 2022 · <b>APP DEV MANAGER</b></p>
+          <h3 class="mission__title">THE MUSEUM APP HEIST</h3>
+          <ul>
+            <li><b>Managed end-to-end app development</b> for the photography museum.</li>
+            <li>Researched museum apps &amp; ticketing systems; gathered requirements from stakeholders.</li>
+            <li>Curated exhibition content and supervised app programming.</li>
+          </ul>
+          <div class="mission__tags"><span>PRODUCT</span><span>RESEARCH</span><span>COORDINATION</span><span>UX</span></div>
+        </div>
+        <div class="mission__stamp">TREASURE<br>OBTAINED</div>
+      </article>
+
+      <article class="mission reveal" style="--d:.26s">
+        <div class="mission__num">03</div>
+        <div class="mission__body">
+          <p class="mission__meta">HARVARD — ONLINE · <b>CS50</b></p>
+          <h3 class="mission__title">FOUNDATIONS OF C-SHIFTING</h3>
+          <ul>
+            <li>Completed <b>CS50: Introduction to Computer Science</b> — C, algorithms, memory, SQL, web.</li>
+            <li>Self-directed training arc: Python + API craft sharpened on real client work.</li>
+          </ul>
+          <div class="mission__tags"><span>C</span><span>SQL</span><span>ALGORITHMS</span><span>FLASK</span></div>
+        </div>
+        <div class="mission__stamp mission__stamp--gold">LV UP</div>
+      </article>
+
+      <article class="mission mission--live reveal" style="--d:.34s">
+        <div class="mission__num">04</div>
+        <div class="mission__body">
+          <p class="mission__meta">GITHUB — LIVE FEED · <b>ACTIVE</b></p>
+          <h3 class="mission__title">REPOSITORY RAID <span class="blink">●</span></h3>
+          <p class="mission__live" id="repoStatus">Scanning the Metaverse for public repos…</p>
+          <div class="repos" id="repoGrid"></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ EQUIPMENT ============ -->
+  <section id="equipment" class="section section--alt">
+    <header class="sec-head reveal">
+      <p class="sec-head__jp">装備</p>
+      <h2 class="sec-head__title">EQUIPMENT</h2>
+      <p class="sec-head__sub">// persona arsenal · tools · environment</p>
+    </header>
+
+    <div class="equip-grid">
+      <div class="equip reveal" style="--d:.1s">
+        <h3>MAIN HAND</h3>
+        <div class="equip__items">
+          <span class="gear" data-tip="Core language">PYTHON</span>
+          <span class="gear" data-tip="Web & scripting">JAVASCRIPT</span>
+          <span class="gear" data-tip="Harvard CS50">C</span>
+          <span class="gear" data-tip="Data retrieval">SQL</span>
+        </div>
+      </div>
+      <div class="equip reveal" style="--d:.18s">
+        <h3>OFF HAND</h3>
+        <div class="equip__items">
+          <span class="gear gear--red" data-tip="LLM pipelines">ChatGPT / OPENAI</span>
+          <span class="gear gear--red" data-tip="Video intelligence">YOUTUBE DATA API</span>
+          <span class="gear gear--red" data-tip="Social data">INSTAGRAM API</span>
+        </div>
+      </div>
+      <div class="equip reveal" style="--d:.26s">
+        <h3>ARMOR</h3>
+        <div class="equip__items">
+          <span class="gear" data-tip="Version control">GIT / GITHUB</span>
+          <span class="gear" data-tip="Everywhere, always">MAC OS</span>
+          <span class="gear" data-tip="Advanced user">MS OFFICE</span>
+          <span class="gear" data-tip="IDE of choice">VS CODE</span>
+        </div>
+      </div>
+      <div class="equip equip--persona reveal" style="--d:.34s">
+        <div class="persona-card">
+          <div class="persona-card__burst">!!</div>
+          <h3>PERSONA</h3>
+          <p class="persona-card__name">MERAKI</p>
+          <p class="persona-card__arcana">ARCANA: MAGICIAN · LV 20</p>
+          <p class="persona-card__desc">"Excellence in academics and leadership. Aims to study Computer Science and steal the future."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONFIDANTS ============ -->
+  <section id="confidants" class="section">
+    <header class="sec-head reveal">
+      <p class="sec-head__jp">仲間</p>
+      <h2 class="sec-head__title">CONFIDANTS</h2>
+      <p class="sec-head__sub">// social links · side quests · the crew</p>
+    </header>
+
+    <div class="conf-grid">
+      <a class="conf conf--gh reveal" style="--d:.1s" href="https://github.com/gustaveems" target="_blank" rel="noopener" data-sfx="confirm">
+        <div class="conf__rank">RANK MAX</div>
+        <h3>@gustaveems</h3>
+        <p>PRIMARY GITHUB · REPOS &amp; COMMITS</p>
+        <div class="conf__stats" data-gh="gustaveems"><span>…</span></div>
+      </a>
+      <a class="conf conf--gh reveal" style="--d:.18s" href="https://github.com/gamsoulasieu2024-gif" target="_blank" rel="noopener" data-sfx="confirm">
+        <div class="conf__rank">RANK UP</div>
+        <h3>@gamsoulasieu2024-gif</h3>
+        <p>IE UNIVERSITY · CAMPUS LINK</p>
+        <div class="conf__stats" data-gh="gamsoulasieu2024-gif"><span>…</span></div>
+      </a>
+      <a class="conf reveal" style="--d:.26s" href="mailto:GusatveAMS@gmail.com" data-sfx="confirm">
+        <div class="conf__rank conf__rank--w">MAIL</div>
+        <h3>GUSATVEAMS@GMAIL.COM</h3>
+        <p>DIRECT LINE · REPLY WITHIN 24H</p>
+      </a>
+      <a class="conf reveal" style="--d:.34s" href="mailto:gamsoulas.ieu2024@student.ie.edu" data-sfx="confirm">
+        <div class="conf__rank conf__rank--w">CAMPUS</div>
+        <h3>GAMSOULAS.IEU2024@STUDENT.IE.EDU</h3>
+        <p>IE UNIVERSITY ADDRESS</p>
+      </a>
+    </div>
+
+    <div class="side-quests reveal" style="--d:.4s">
+      <h3 class="panel__title">SIDE QUESTS <span class="jp-inline">課外活動</span></h3>
+      <ul class="quests">
+        <li><span class="q-tag">E-SPORTS</span><b>E-sports Club Captain</b> — organize &amp; manage a junior team across titles. <em>DUBAI · 2022→NOW</em></li>
+        <li><span class="q-tag">SPORT</span><b>Basketball</b> — top school team, medals in local tournaments. <em>DUBAI/SHANGHAI · 2018→NOW</em></li>
+        <li><span class="q-tag">SPORT</span><b>Football</b> — first-team midfielder/winger, 2nd @ Thailand international cup. <em>2018→NOW</em></li>
+        <li><span class="q-tag">EXPLORE</span><b>Hiking</b> — week-long expeditions in Tibet &amp; Oman. <em>2018→NOW</em></li>
+        <li><span class="q-tag">HELP</span><b>Brawlhalla Tournament</b> — school qualifier for Dubai Gaming Festival 2023. <em>MAY–JUN 2023</em></li>
+        <li><span class="q-tag">HELP</span><b>Save the Butts</b> — student-led Dubai beach clean-ups. <em>2022→NOW</em></li>
+        <li><span class="q-tag">HELP</span><b>Pakistan Flood Aid</b> — packaged &amp; shipped relief goods. <em>AUG–OCT 2022</em></li>
+        <li><span class="q-tag">MIND</span><b>Chess</b> — avid player. Strategy is a lifestyle. <em>∞</em></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ CALLING CARD / CONTACT ============ -->
+  <section id="callingcard" class="section section--dark">
+    <header class="sec-head reveal">
+      <p class="sec-head__jp">予告状</p>
+      <h2 class="sec-head__title">CALLING CARD</h2>
+      <p class="sec-head__sub">// send a message · the phantom will reply</p>
+    </header>
+
+    <div class="cc-wrap">
+      <form id="ccForm" class="cc reveal" style="--d:.12s">
+        <div class="cc__row">
+          <label>NAME<input type="text" id="ccName" required placeholder="Who dares write to a phantom?"></label>
+          <label>EMAIL<input type="email" id="ccEmail" required placeholder="reply@address.com"></label>
+        </div>
+        <label>SUBJECT<input type="text" id="ccSubject" required placeholder="A heist proposal?"></label>
+        <label>MESSAGE<textarea id="ccMsg" rows="5" required placeholder="Dear Gustave, your distorted desire for clean Python code…"></textarea></label>
+        <button type="submit" class="btn btn--red btn--big" data-sfx="confirm">DELIVER CALLING CARD ➤</button>
+        <p class="cc__note">opens your mail client addressed to <b>GusatveAMS@gmail.com</b> — zero servers, zero tracking.</p>
+      </form>
+      <aside class="cc-side reveal" style="--d:.24s">
+        <div class="cc-side__burst">STOLEN<br>BY<br>DESIRE</div>
+        <ul>
+          <li><em>BASE</em> Madrid · Dubai</li>
+          <li><em>STATUS</em> Open to internships &amp; collabs</li>
+          <li><em>WEAPON</em> Python, AI, APIs</li>
+          <li><em>HP</em> 92 · <em>SP</em> 78 · <em>LUCK</em> ★</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+  </main>
+
+  <footer class="foot">
+    <p>© <span id="year">2026</span> GUSTAVE A. M. SOULAS — BUILT WITH HALFTONE, SKEW &amp; SPITE.</p>
+    <p class="foot__jp">PERSONA 5 IS A TRADEMARK OF ATLUS. THIS IS A FAN-STYLED PORTFOLIO.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
