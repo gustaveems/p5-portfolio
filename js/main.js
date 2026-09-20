@@ -5,7 +5,7 @@
 (function () {
   "use strict";
 
-  var GH_HANDLES = ["gustaveems", "gamsoulasieu2024-gif"];
+  var GH_HANDLES = ["gustaveems", "totallynotgus"];
   var CONTACT_EMAIL = "GusatveAMS@gmail.com";
 
   var $ = function (s, c) { return (c || document).querySelector(s); };
@@ -59,7 +59,7 @@
   });
 
   document.addEventListener("pointerover", function (e) {
-    var el = e.target.closest ? e.target.closest("[data-sfx]") : null;
+    var el = (e.target && e.target.closest) ? e.target.closest("[data-sfx]") : null;
     if (!el) return;
     if (el.dataset.sfx === "hover") Sfx.hover();
     else if (el.dataset.sfx === "confirm") Sfx.confirm();
@@ -88,13 +88,19 @@
   /* ---------------- MENU ---------------- */
   var menu = $("#menu");
   var menuBtn = $("#menuToggle");
+  var menuOpen = false;
   function setMenu(open) {
-    menu.classList.toggle("open", open);
-    menuBtn.classList.toggle("open", open);
-    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-    menuBtn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    menuOpen = !!open;
+    menu.classList.toggle("open", menuOpen);
+    menu.setAttribute("aria-hidden", menuOpen ? "false" : "true");
+    menuBtn.classList.toggle("open", menuOpen);
+    menuBtn.setAttribute("aria-expanded", menuOpen ? "true" : "false");
+    menuBtn.setAttribute("aria-label", menuOpen ? "Close menu" : "Open menu");
   }
-  menuBtn.addEventListener("click", function () { setMenu(!menu.classList.contains("open")); });
+  menuBtn.addEventListener("click", function () { setMenu(!menuOpen); });
+  menu.addEventListener("click", function (e) {
+    if (e.target === menu || e.target.classList.contains("menu__halftone")) setMenu(false);
+  });
   document.addEventListener("keydown", function (e) {
     if (e.key === "b" || e.key === "B" || e.key === "Escape") setMenu(false);
   });
@@ -113,7 +119,12 @@
       if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
       wipe.classList.add("go2");
     }, 360);
-    setTimeout(function () { wipe.classList.remove("go", "go2"); }, 900);
+    setTimeout(function () {
+      wipe.style.transition = "none";
+      wipe.classList.remove("go", "go2");
+      void wipe.offsetWidth;
+      wipe.style.transition = "";
+    }, 900);
   }
   $$("[data-nav]").forEach(function (a) {
     a.addEventListener("click", function (e) {
@@ -217,22 +228,4 @@
     });
   }
   loadGitHub();
-
-  /* ---------------- CALLING CARD FORM ---------------- */
-  var form = $("#ccForm");
-  if (form) form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var name = $("#ccName").value.trim();
-    var mail = $("#ccEmail").value.trim();
-    var subj = $("#ccSubject").value.trim();
-    var msg = $("#ccMsg").value.trim();
-    var body =
-      "A Calling Card for Gustave:\n\n" + msg +
-      "\n\n— " + name + "\nreply to: " + mail;
-    var href = "mailto:" + CONTACT_EMAIL +
-      "?subject=" + encodeURIComponent("[PORTFOLIO] " + subj) +
-      "&body=" + encodeURIComponent(body);
-    Sfx.confirm();
-    window.location.href = href;
-  });
 })();
