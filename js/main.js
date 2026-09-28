@@ -6,7 +6,6 @@
   "use strict";
 
   var GH_HANDLES = ["gustaveems", "totallynotgus"];
-  var CONTACT_EMAIL = "GusatveAMS@gmail.com";
 
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
@@ -71,6 +70,7 @@
   function enter() {
     if (entered) return;
     entered = true;
+    try { localStorage.setItem("p5-entered", "1"); } catch (e) {}
     Sfx.boot(); Sfx.whoosh();
     intro.classList.add("gone");
     document.body.style.overflow = "";
@@ -78,11 +78,21 @@
     revealScan();
   }
   if (intro) {
-    document.body.style.overflow = "hidden";
-    intro.addEventListener("click", enter);
-    document.addEventListener("keydown", function (e) {
-      if (!entered && (e.key === "x" || e.key === "X" || e.key === "Enter" || e.key === " ")) enter();
-    });
+    var seen = false;
+    try { seen = localStorage.getItem("p5-entered") === "1"; } catch (e) {}
+    if (seen) {
+      entered = true;
+      intro.remove();
+      intro = null;
+    } else {
+      document.body.style.overflow = "hidden";
+      var btn = $("#enterBtn");
+      if (btn) setTimeout(function () { btn.focus(); }, 300);
+      intro.addEventListener("click", enter);
+      document.addEventListener("keydown", function (e) {
+        if (!entered && (e.key === "x" || e.key === "X" || e.key === "Enter" || e.key === " ")) enter();
+      });
+    }
   }
 
   /* ---------------- MENU ---------------- */
@@ -178,17 +188,27 @@
   }
   function fmt(n) { return n >= 1000 ? (n / 1000).toFixed(1).replace(".0", "") + "k" : String(n); }
 
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
   function renderProfileCard(handle, profile) {
     var box = $('.conf__stats[data-gh="' + handle + '"]');
     if (!box) return;
+    box.textContent = "";
     if (!profile) {
-      box.innerHTML = "<span class='lbl'>AWAITING FIRST HEIST…</span>";
+      box.appendChild(el("span", "lbl", "AWAITING FIRST HEIST…"));
       return;
     }
-    box.innerHTML =
-      "<span>★ " + fmt(profile.public_repos) + " <i class='lbl'>REPOS</i></span>" +
-      "<span>♥ " + fmt(profile.followers) + " <i class='lbl'>FOLLOWERS</i></span>" +
-      "<span class='lbl'>" + (profile.login || handle) + "</span>";
+    var repos = el("span", null, "★ " + fmt(profile.public_repos) + " ");
+    repos.appendChild(el("i", "lbl", "REPOS"));
+    var fols = el("span", null, "♥ " + fmt(profile.followers) + " ");
+    fols.appendChild(el("i", "lbl", "FOLLOWERS"));
+    box.appendChild(repos);
+    box.appendChild(fols);
+    box.appendChild(el("span", "lbl", profile.login || handle));
   }
 
   function renderRepos(handle, repos) {
@@ -198,21 +218,24 @@
       var a = document.createElement("a");
       a.className = "repo";
       a.href = r.html_url; a.target = "_blank"; a.rel = "noopener";
-      a.innerHTML =
-        "<b>" + r.name + "</b>" +
-        "<p>" + (r.description || "No description — stealth mode.") + "</p>" +
-        "<span>★ " + r.stargazers_count +
-        (r.language ? " <i class='lang'>⬤ " + r.language + "</i>" : "") + "</span>";
+      a.appendChild(el("b", null, r.name));
+      a.appendChild(el("p", null, r.description || "No description — stealth mode."));
+      var stats = el("span", null, "★ " + r.stargazers_count);
+      if (r.language) {
+        stats.appendChild(document.createTextNode(" "));
+        stats.appendChild(el("i", "lang", "⬤ " + r.language));
+      }
+      a.appendChild(stats);
       grid.appendChild(a);
     });
   }
 
   function loadGitHub() {
     var status = $("#repoStatus");
-    var any = false;
+    var any = false, failed = false;
     Promise.all(GH_HANDLES.map(function (h) {
       return Promise.all([
-        ghFetch("https://api.github.com/users/" + h).catch(function () { return null; }),
+        ghFetch("https://api.github.com/users/" + h).catch(function () { failed = true; return null; }),
         ghFetch("https://api.github.com/users/" + h + "/repos?sort=updated&per_page=8").catch(function () { return []; })
       ]).then(function (res) {
         var profile = res[0], repos = res[1];
@@ -220,11 +243,18 @@
         if (profile && repos && repos.length) { any = true; renderRepos(h, repos.slice(0, 6)); }
       });
     })).then(function () {
-      if (status) {
-        status.innerHTML = any
-          ? "LIVE FEED SYNCED ✦ latest repos raided from the Metaverse."
-          : "NO PUBLIC REPOS YET — the phantom is still coding in stealth. Raid returns soon.";
+      if (!status) return;
+      status.textContent = "";
+      if (any) { status.textContent = "LIVE FEED SYNCED ✦ latest repos raided from the Metaverse."; return; }
+      if (failed) {
+        status.textContent = "FEED OFFLINE — the Metaverse is rate-limiting this visitor. Raid ";
+        var a = el("a", "inline-link", "github.com/gustaveems");
+        a.href = "https://github.com/gustaveems"; a.target = "_blank"; a.rel = "noopener";
+        status.appendChild(a);
+        status.appendChild(document.createTextNode(" directly."));
+        return;
       }
+      status.textContent = "NO PUBLIC REPOS YET — the phantom is still coding in stealth. Raid returns soon.";
     });
   }
   loadGitHub();

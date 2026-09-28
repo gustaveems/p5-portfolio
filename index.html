@@ -5,15 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GUSTAVE SOULAS // PHANTOM PORTFOLIO</title>
   <meta name="description" content="The Phantom Portfolio of Gustave Soulas — Computer Science & AI student at IE University. Status, Missions, Equipment, Confidants and Contact.">
+  <meta name="author" content="Gustave Soulas">
+  <meta name="theme-color" content="#050505">
+  <link rel="canonical" href="https://gustaveems.github.io/p5-portfolio/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="GUSTAVE SOULAS // PHANTOM PORTFOLIO">
+  <meta property="og:description" content="BSc CS & AI student at IE University. Public-data pipelines, LLM agents, ML models, full-stack web apps. Open to Summer 2027 internships.">
+  <meta property="og:url" content="https://gustaveems.github.io/p5-portfolio/">
+  <meta property="og:image" content="https://gustaveems.github.io/p5-portfolio/assets/og-cover.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bungee&family=Kanit:ital,wght@0,600;0,800;1,600;1,800;1,900&family=Playfair+Display:ital,wght@1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Kanit:ital,wght@0,600;0,800;1,600;1,800;1,900&family=Playfair+Display:ital,wght@1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Gustave Soulas",
+    "url": "https://gustaveems.github.io/p5-portfolio/",
+    "email": "gustaveams@gmail.com",
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "IE University — BSc Computer Science & AI" },
+    "knowsAbout": ["Python", "LLM Agents", "Machine Learning", "Full-stack Web", "SQL/PostGIS", "API Integration"],
+    "sameAs": [
+      "https://github.com/gustaveems",
+      "https://github.com/totallynotgus",
+      "https://www.linkedin.com/in/gustave-soulas-8b77002a2"
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <!-- ============ CALLING CARD / INTRO OVERLAY ============ -->
-  <div id="intro" class="intro" role="dialog" aria-label="Intro screen">
+  <div id="intro" class="intro" role="dialog" aria-modal="true" aria-label="Intro screen">
     <div class="intro__halftone"></div>
     <div class="intro__slash"></div>
     <div class="intro__card">
@@ -44,10 +69,10 @@
   <nav id="menu" class="menu" aria-label="Main navigation" aria-hidden="true">
     <div class="menu__halftone"></div>
     <ul class="menu__list">
-      <li><a href="#status"    data-nav data-sfx="hover"><em>01</em> STATUS<em class="jp">ステータス</em></a></li>
-      <li><a href="#missions"  data-nav data-sfx="hover"><em>02</em> MISSIONS<em class="jp">ミッション</em></a></li>
-      <li><a href="#equipment" data-nav data-sfx="hover"><em>03</em> EQUIPMENT<em class="jp">装備</em></a></li>
-      <li><a href="#confidants" data-nav data-sfx="hover"><em>04</em> CONFIDANTS<em class="jp">仲間 · SOCIAL LINK</em></a></li>
+      <li><a href="#status"    data-nav data-sfx="hover"><em>01</em> STATUS<em class="jp" lang="ja">ステータス</em></a></li>
+      <li><a href="#missions"  data-nav data-sfx="hover"><em>02</em> MISSIONS<em class="jp" lang="ja">ミッション</em></a></li>
+      <li><a href="#equipment" data-nav data-sfx="hover"><em>03</em> EQUIPMENT<em class="jp" lang="ja">装備</em></a></li>
+      <li><a href="#confidants" data-nav data-sfx="hover"><em>04</em> CONFIDANTS<em class="jp" lang="ja">仲間 · SOCIAL LINK</em></a></li>
       <li><a href="#contact" data-nav data-sfx="hover"><em>05</em> CONTACT<em class="jp">連絡先</em></a></li>
     </ul>
     <p class="menu__foot">PRESS <span class="key key--dark">B</span> TO CLOSE</p>
@@ -85,6 +110,7 @@
       </div>
 
       <div class="hero__actions reveal" style="--d:.4s">
+        <a href="assets/CV_Gustave_Soulas_2026.pdf" class="btn btn--yellow" download data-sfx="confirm">DOWNLOAD CV</a>
         <a href="#missions" class="btn btn--red" data-nav data-sfx="confirm">VIEW MISSIONS</a>
         <a href="#contact" class="btn btn--ghost" data-nav data-sfx="confirm">CONTACT ME</a>
       </div>
@@ -101,7 +127,7 @@
   <!-- ============ STATUS ============ -->
   <section id="status" class="section section--alt">
     <header class="sec-head reveal">
-      <p class="sec-head__jp">ステータス</p>
+      <p class="sec-head__jp" lang="ja">ステータス</p>
       <h2 class="sec-head__title">STATUS</h2>
       <p class="sec-head__sub">// skills · proficiency · growth</p>
     </header>
@@ -130,7 +156,7 @@
           <li><em>CHINESE</em><span class="stars">★★★</span><b>PROFICIENT</b></li>
         </ul>
         <div class="divider-slash"></div>
-        <h3 class="panel__title">PERSONA REGISTRY <span class="jp-inline">学歴</span></h3>
+        <h3 class="panel__title">PERSONA REGISTRY <span class="jp-inline" lang="ja">学歴</span></h3>
         <ul class="edu">
           <li>
             <em>IE UNIVERSITY — MADRID</em>
@@ -155,15 +181,15 @@
   <!-- ============ MISSIONS ============ -->
   <section id="missions" class="section">
     <header class="sec-head reveal">
-      <p class="sec-head__jp">ミッション</p>
+      <p class="sec-head__jp" lang="ja">ミッション</p>
       <h2 class="sec-head__title">MISSIONS<span class="sec-head__small">/ PALACES CLEARED</span></h2>
       <p class="sec-head__sub">// projects · hackathons · experience · treasure obtained</p>
     </header>
 
     <div class="gh-note reveal" style="--d:.06s">
       <span class="gh-note__star">✱</span>
-      <p>Note: my previous GitHub account was deleted, which unfortunately resulted in the loss of many past
-      portfolio pieces and projects. Current account: <b>@gustaveems</b> · campus: <b>@totallynotgus</b>.</p>
+      <p>Note: my previous GitHub account was banned, which unfortunately cost me access to a large amount of past
+      portfolio pieces and projects — including the ParkScan repository. Current account: <b>@gustaveems</b> · campus: <b>@totallynotgus</b>.</p>
     </div>
 
     <div class="missions">
@@ -279,7 +305,7 @@
   <!-- ============ EQUIPMENT ============ -->
   <section id="equipment" class="section section--alt">
     <header class="sec-head reveal">
-      <p class="sec-head__jp">装備</p>
+      <p class="sec-head__jp" lang="ja">装備</p>
       <h2 class="sec-head__title">EQUIPMENT</h2>
       <p class="sec-head__sub">// persona arsenal · tools · environment</p>
     </header>
@@ -331,7 +357,7 @@
   <!-- ============ CONFIDANTS ============ -->
   <section id="confidants" class="section">
     <header class="sec-head reveal">
-      <p class="sec-head__jp">仲間</p>
+      <p class="sec-head__jp" lang="ja">仲間</p>
       <h2 class="sec-head__title">CONFIDANTS</h2>
       <p class="sec-head__sub">// social links · side quests · the crew</p>
     </header>
@@ -349,15 +375,20 @@
         <p>CAMPUS LINK · IE UNIVERSITY</p>
         <div class="conf__stats" data-gh="totallynotgus"><span>…</span></div>
       </a>
-      <a class="conf reveal" style="--d:.26s" href="mailto:gamsoulas.ieu2024@student.ie.edu" data-sfx="confirm">
+      <a class="conf conf--li reveal" style="--d:.26s" href="https://www.linkedin.com/in/gustave-soulas-8b77002a2" target="_blank" rel="noopener" data-sfx="confirm">
+        <div class="conf__rank conf__rank--li">RANK UP</div>
+        <h3>GUSTAVE SOULAS</h3>
+        <p>LINKEDIN · PROFESSIONAL NETWORK</p>
+      </a>
+      <a class="conf reveal" style="--d:.34s" href="mailto:gustaveams@gmail.com" data-sfx="confirm">
         <div class="conf__rank conf__rank--w">MAIL</div>
-        <h3>GAMSOULAS.IEU2024@STUDENT.IE.EDU</h3>
+        <h3>GUSTAVEAMS@GMAIL.COM</h3>
         <p>DIRECT LINE · REPLY WITHIN 24H</p>
       </a>
     </div>
 
     <div class="side-quests reveal" style="--d:.34s">
-      <h3 class="panel__title">SIDE QUESTS <span class="jp-inline">課外活動</span></h3>
+      <h3 class="panel__title">SIDE QUESTS <span class="jp-inline" lang="ja">課外活動</span></h3>
       <ul class="quests">
         <li><span class="q-tag">SPORT</span><b>Football</b> — first team; 2nd place at an international tournament in Thailand. <em>2018→NOW</em></li>
         <li><span class="q-tag">SPORT</span><b>Basketball</b> — regularly on the top school team. <em>2018→NOW</em></li>
@@ -372,28 +403,43 @@
   <!-- ============ CONTACT ============ -->
   <section id="contact" class="section section--dark">
     <header class="sec-head reveal">
-      <p class="sec-head__jp">連絡先</p>
+      <p class="sec-head__jp" lang="ja">連絡先</p>
       <h2 class="sec-head__title">CONTACT</h2>
       <p class="sec-head__sub">// direct line · no forms, no servers — just reach out</p>
     </header>
 
     <div class="contact-grid">
-      <a class="ccard ccard--red reveal" style="--d:.1s" href="mailto:gamsoulas.ieu2024@student.ie.edu" data-sfx="confirm">
-        <em>EMAIL</em>
-        <b>gamsoulas.ieu2024@student.ie.edu</b>
+      <a class="ccard ccard--red reveal" style="--d:.1s" href="mailto:gustaveams@gmail.com" data-sfx="confirm">
+        <em>EMAIL · PERSONAL</em>
+        <b>gustaveams@gmail.com</b>
         <span>tap to open your mail client ➤</span>
       </a>
-      <a class="ccard reveal" style="--d:.18s" href="https://github.com/gustaveems" target="_blank" rel="noopener" data-sfx="confirm">
+      <a class="ccard reveal" style="--d:.14s" href="mailto:gamsoulas.ieu2024@student.ie.edu" data-sfx="confirm">
+        <em>EMAIL · SCHOOL</em>
+        <b>gamsoulas.ieu2024@student.ie.edu</b>
+        <span>IE University alias ➤</span>
+      </a>
+      <a class="ccard reveal" style="--d:.26s" href="https://www.linkedin.com/in/gustave-soulas-8b77002a2" target="_blank" rel="noopener" data-sfx="confirm">
+        <em>LINKEDIN</em>
+        <b>Gustave Soulas</b>
+        <span>professional profile ↗</span>
+      </a>
+      <a class="ccard reveal" style="--d:.34s" href="https://github.com/gustaveems" target="_blank" rel="noopener" data-sfx="confirm">
         <em>GITHUB · MAIN</em>
         <b>github.com/gustaveems</b>
         <span>repos, commits &amp; live stats ↗</span>
       </a>
-      <a class="ccard reveal" style="--d:.26s" href="https://github.com/totallynotgus" target="_blank" rel="noopener" data-sfx="confirm">
+      <a class="ccard reveal" style="--d:.42s" href="https://github.com/totallynotgus" target="_blank" rel="noopener" data-sfx="confirm">
         <em>GITHUB · CAMPUS</em>
         <b>github.com/totallynotgus</b>
         <span>IE University link ↗</span>
       </a>
-      <div class="ccard ccard--static reveal" style="--d:.34s">
+      <a class="ccard ccard--cv reveal" style="--d:.5s" href="assets/CV_Gustave_Soulas_2026.pdf" download data-sfx="confirm">
+        <em>CV / RESUME</em>
+        <b>DOWNLOAD PDF</b>
+        <span>2026 edition · one tap ➤</span>
+      </a>
+      <div class="ccard ccard--static reveal" style="--d:.58s">
         <em>BASE</em>
         <b>Madrid, Spain</b>
         <span>open to internships &amp; collaborations</span>
