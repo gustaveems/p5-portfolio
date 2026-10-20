@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- Source for assets/CV_Gustave_Soulas_2026.pdf — rebuild with cv/build.sh -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gustave Soulas — CV 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Carlito:ital,wght@0,400;0,700;1,400&display=block" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 8mm 12mm 7mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Carlito, Calibri, "Helvetica Neue", Arial, sans-serif; font-size: 9.25pt; line-height: 1.19; color: #111; }
+  a { color: inherit; text-decoration: none; }
+  h1 { text-align: center; font-size: 18pt; font-weight: 700; letter-spacing: .02em; }
+  .contact { text-align: center; font-size: 8.8pt; color: #444; margin-top: 2pt; }
+  .contact span { margin: 0 4pt; color: #999; }
+  .contact a { white-space: nowrap; }
+  h2 { font-size: 9.6pt; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+       border-bottom: .8pt solid #222; padding-bottom: 1.2pt; margin: 6pt 0 2.5pt; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10pt; margin-top: 2.4pt; }
+  .row b { font-weight: 700; }
+  .row i { font-style: italic; }
+  .row .when { color: #444; white-space: nowrap; font-size: 8.9pt; }
+  ul { margin: 1pt 0 0 13pt; list-style: none; }
+  li { position: relative; margin-top: .6pt; }
+  li::before { content: "●"; position: absolute; left: -10pt; top: .4pt; font-size: 6.5pt; }
+  .tight { margin-top: 0; }
+  p.summary { margin-top: 1pt; }
+  .link { color: #1a4fa0; }
+</style>
+</head>
+<body>
+  <h1>Gustave Alain Mohand Soulas</h1>
+  <p class="contact">
+    Madrid,&nbsp;Spain<span>|</span><a href="mailto:gamsoulas.ieu2024@student.ie.edu">gamsoulas.ieu2024@student.ie.edu</a><span>|</span><a href="https://www.linkedin.com/in/gustave-soulas-8b77002a2/">linkedin.com/in/gustave-soulas-8b77002a2</a><span>|</span><a href="https://github.com/gustaveems">github.com/gustaveems</a><span>|</span><a href="https://gustaveems.github.io/p5-portfolio/">gustaveems.github.io/p5-portfolio</a>
+  </p>
+
+  <h2>Summary</h2>
+  <p class="summary">Third-year Computer Science and Artificial Intelligence student at IE University who ships working AI products end to end: public-data pipelines, LLM agents, machine learning models and full-stack web apps. Three hackathon and datathon builds in 2026, plus self-directed projects in computer vision, local LLMs and game development. Open to Summer 2027 internships.</p>
+
+  <h2>Education</h2>
+  <div class="row"><span><b>IE University</b></span><span class="when">Madrid, Spain</span></div>
+  <div class="row tight"><span><i>BSc Computer Science &amp; Artificial Intelligence</i></span><span class="when">Third year — expected graduation 2027</span></div>
+  <ul><li><b>Relevant coursework:</b> Machine Learning, Algorithms &amp; Data Structures, Software Design, Python, C, Java.</li></ul>
+  <div class="row"><span><b>Nord Anglia International School</b> — <i>International Baccalaureate Diploma</i></span><span class="when">Dubai, UAE · June 2024</span></div>
+  <div class="row"><span><b>Lycée Français International de Shanghai</b> — <i>French curriculum</i></span><span class="when">Shanghai, China · 2011 – 2022</span></div>
+
+  <h2>Hackathons &amp; Competitions</h2>
+  <div class="row"><span><b>ParkScan NL</b> — <i>Vacant-property sourcing &amp; AI outreach platform</i></span><span class="when">IE University Hackathon, 2026</span></div>
+  <ul>
+    <li>Full-stack web app mapping the Netherlands for vacant commercial buildings to convert to parking, cutting analyst work from 3–5 hours to about 15 minutes per building (live brief: SULC Advisors).</li>
+    <li>Scored candidates 0–100 on vacancy and parking suitability from the BAG, PDOK and Kadaster open-data APIs; a Gemini 2.5 agent drafts a Dutch letter per owner, sent via n8n only after human approval. Node.js/Express, PostGIS, MapLibre, Puppeteer.</li>
+  </ul>
+  <div class="row"><span><b>IE SciTech Sustainability Datathon</b> — <i>Iberdrola &amp; Aqualia challenges</i></span><span class="when">IE University, 2026</span></div>
+  <ul>
+    <li>Iberdrola — modelled the minimum number of EV charging points from road-network, station, adoption and grid-capacity data, flagging congestion areas and proposing reinforcement strategies.</li>
+    <li>Aqualia — identified three emerging ESG material topics grounded in CSRD/ESRS and assessed their impact on risk, operations and strategy.</li>
+  </ul>
+  <div class="row"><span><b>Vocable</b> — <i>Web accessibility reading tool</i></span><span class="when">Cursor Hackathon, 2026</span></div>
+  <ul><li>Paste any link and the app extracts, cleans and reads the page aloud for users with impaired eyesight. <a class="link" href="https://github.com/issamarida/vocable">github.com/issamarida/vocable</a></li></ul>
+
+  <h2>Projects</h2>
+  <div class="row"><span><b>VacancyOracle</b> — <i>ML successor to ParkScan (computer vision)</i></span><span class="when">2026 – Present</span></div>
+  <ul><li>Hand-labelled 701 Dutch commercial addresses and embedded 4,071 Street View images with SigLIP under a frozen evaluation protocol; zero-shot vision reaches 0.048 PR-AUC vs 0.032 (rules engine) and 0.024 (majority baseline). PyTorch, active learning.</li></ul>
+  <div class="row"><span><b>Stylist</b> — <i>Wardrobe AI agent (PWA)</i></span><span class="when">2026</span></div>
+  <ul><li>Closet and event planner with “Daily Three” outfit recommendations, each explained by an AI layer. Next.js, Supabase (Postgres, storage, auth), shipped as an installable PWA.</li></ul>
+  <div class="row"><span><b>SwellSync</b> — <i>Surf &amp; sail session logger</i></span><span class="when">IE University, 2026</span></div>
+  <ul><li>Flask + SQLite app with full CRUD, cross-domain stats, search and CSV export; whitelisted SQL sort keys, CSP and security headers, Docker deploy and 100% business-logic test coverage with pytest.</li></ul>
+  <div class="row"><span><b>Fleeting Utility</b> — <i>Narrative game in Godot 4</i></span><span class="when">2026 – Present</span></div>
+  <ul><li>Isometric 2.5D game whose world is built entirely in GDScript code, with a state-machine perception system, shader-based scene transitions and an automated verification harness.</li></ul>
+  <div class="row"><span><b>PC Builder Advisor</b> — <i>Data-driven build recommender</i></span><span class="when">2025 – 2026</span></div>
+  <ul><li>Compatibility scoring over a curated component dataset with a live price-scraper pipeline, build comparison and assembly checklist. Next.js + TypeScript, deployed on Vercel.</li></ul>
+  <div class="row"><span><b>Personal Health &amp; Activity Dashboard</b> — <i>Self-hosted web app</i></span><span class="when">2025 – Present</span></div>
+  <ul><li>Consolidates Fitbit sleep, workout and calorie data; a calorie tracker on a locally hosted LLM (Ollama) turns free-text meals into calorie and macro breakdowns with no third-party API.</li></ul>
+  <div class="row"><span><b>UFC Matchup Prediction Model</b> — <i>Machine learning coursework</i></span><span class="when">IE University, 2025</span></div>
+  <ul><li>Predicts the most competitive matchups from historical fighter and bout statistics using leak-safe rolling features; compared XGBoost, logistic regression and a neural network.</li></ul>
+
+  <h2>Experience</h2>
+  <div class="row"><span><b>Lefty — Software &amp; Data Intern</b></span><span class="when">Paris, France · March 2023</span></div>
+  <ul><li>Built a YouTube Data API program to detect and flag harmful video content for brand-safety screening, and contributed to influencer categorisation using ChatGPT and Instagram analysis for Lefty's luxury client portfolio.</li></ul>
+  <div class="row"><span><b>Fotografiska — App Development Intern</b></span><span class="when">Shanghai, China · May 2022</span></div>
+  <ul><li>Managed development of the museum's visitor app: researched comparable apps and ticketing systems, gathered requirements, curated exhibition content and supervised the programming work.</li></ul>
+
+  <h2>Skills &amp; Interests</h2>
+  <ul>
+    <li><b>Languages:</b> Python, JavaScript / TypeScript, SQL, C, Java, GDScript</li>
+    <li><b>AI &amp; ML:</b> LLM integration (Gemini, OpenAI, Ollama), AI agents, prompt engineering, PyTorch, scikit-learn, XGBoost</li>
+    <li><b>Web &amp; Data:</b> Next.js, Express, Flask, PostgreSQL / PostGIS, Supabase, SQLite, MapLibre, Puppeteer, n8n, Docker, pytest, Git</li>
+    <li><b>Certifications:</b> Harvard CS50. <b>Languages:</b> native English and French; proficient Spanish, Mandarin Chinese and Kabyle.</li>
+    <li><b>Interests:</b> football (first team; 2nd place at an international tournament in Thailand), basketball, surfing, sailing, hiking, painting, chess.</li>
+  </ul>
+</body>
+</html>
