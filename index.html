@@ -253,11 +253,12 @@
           <h3 class="mission__title">VacancyOracle — The ML Successor</h3>
           <ul>
             <li>ParkScan's hand-tuned rules become measured models: <b>1,050 hand-labeled Dutch commercial addresses</b>, <b>4,071 Street View images embedded locally</b> with SigLIP, BAG registry features, and an evaluation protocol frozen before any model was fit.</li>
-            <li>The fused image + registry model reaches <b>0.47 PR-AUC</b> in-city (95% CI 0.30–0.66) at a 3% vacancy rate, against 0.03 for ParkScan's original rules. Across cities, the training-free zero-shot model wins with non-overlapping intervals, and the write-up says so.</li>
-            <li>Pre-registered a sign-reading test (on-device OCR for <b>“TE HUUR”</b> boards). It came back a clean null that exposed the real bottleneck: low-resolution views and 268 “no imagery” placeholders, now fixed with a facade-aimed fetcher.</li>
+            <li><b>Audited my own evaluation and caught leakage:</b> 843 labeled units sit in only 468 buildings, so splitting by unit let a building's neighbours give its answer away. With building-grouped CV the fused model drops from 0.55 to 0.37; the SigLIP image probe holds at <b>0.43 PR-AUC</b> at a 3% vacancy rate, against 0.03 for ParkScan's original rules.</li>
+            <li>Found a confound: vacancy is labeled 3× more often in Street View photos from before 2016, and photo age alone beats every trained model across cities. Capture year is now a mandatory control.</li>
+            <li>Pre-registered a sign-reading test (on-device OCR for <b>“TE HUUR”</b> boards), re-run on 2,511 facade-aimed images: a clean null — the vacant facades carry no letting boards. Now hunting recent-photo Amsterdam vacancies with a model-ranked label queue.</li>
           </ul>
-          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/vacancy-oracle" target="_blank" rel="noopener">Code ↗</a> <span>baselines, pre-registrations &amp; write-ups in the repo</span></p>
-          <img class="mission-figure" src="assets/vacancy_fusion_pr.png" alt="Precision-recall curves for the fused VacancyOracle model: 0.468 PR-AUC in 5-fold cross-validation, 0.064 on the geographic holdout, against a 3.1% prevalence line" loading="lazy">
+          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/vacancy-oracle" target="_blank" rel="noopener">Code ↗</a> <span>baselines, pre-registrations &amp; audits in the repo</span></p>
+          <img class="mission-figure" src="assets/vacancy_audit.png" alt="Bar chart: in-city cross-validated PR-AUC when splitting by unit versus by building. The fused model falls from 0.55 to 0.37 and registry-only from 0.45 to 0.21, while the image probe stays at about 0.43." loading="lazy">
           <div class="mission__tags"><span>PYTHON</span><span>PYTORCH</span><span>SIGLIP</span><span>SCIKIT-LEARN</span><span>APPLE VISION OCR</span><span>PDOK/BAG</span></div>
         </div>
         <div class="mission__stamp mission__stamp--gold">ACTIVE<br>QUEST</div>
