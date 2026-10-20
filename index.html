@@ -252,12 +252,13 @@
           <p class="mission__meta">Self-directed · 2026 → present · <b>ML · computer vision · public data</b></p>
           <h3 class="mission__title">VacancyOracle — The ML Successor</h3>
           <ul>
-            <li>ParkScan's scoring rules graduate to learned models: <b>701 hand-labeled Dutch commercial addresses</b>, <b>4,071 Street View images embedded locally</b> with SigLIP, evaluation protocol frozen before any model was fit.</li>
-            <li>First light: zero-shot vision reaches <b>0.048 PR-AUC</b> vs 0.032 for the rules engine and 0.024 for the majority baseline — an active-learning batch is now running to fix positive-class sparsity.</li>
+            <li>ParkScan's hand-tuned rules become measured models: <b>1,050 hand-labeled Dutch commercial addresses</b>, <b>4,071 Street View images embedded locally</b> with SigLIP, BAG registry features, and an evaluation protocol frozen before any model was fit.</li>
+            <li>The fused image + registry model reaches <b>0.47 PR-AUC</b> in-city (95% CI 0.30–0.66) at a 3% vacancy rate, against 0.03 for ParkScan's original rules. Across cities, the training-free zero-shot model wins with non-overlapping intervals, and the write-up says so.</li>
+            <li>Pre-registered a sign-reading test (on-device OCR for <b>“TE HUUR”</b> boards). It came back a clean null that exposed the real bottleneck: low-resolution views and 268 “no imagery” placeholders, now fixed with a facade-aimed fetcher.</li>
           </ul>
-          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/vacancy-oracle" target="_blank" rel="noopener">Code ↗</a> <span>baselines, label studio &amp; findings published as they land</span></p>
-          <img class="mission-figure" src="assets/pr_curves.png" alt="Precision-recall curves: SigLIP zero-shot vision vs ParkScan rules vs random on 539 human labels" loading="lazy">
-          <div class="mission__tags"><span>PYTHON</span><span>PYTORCH</span><span>SIGLIP</span><span>PDOK/BAG</span><span>ACTIVE LEARNING</span></div>
+          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/vacancy-oracle" target="_blank" rel="noopener">Code ↗</a> <span>baselines, pre-registrations &amp; write-ups in the repo</span></p>
+          <img class="mission-figure" src="assets/vacancy_fusion_pr.png" alt="Precision-recall curves for the fused VacancyOracle model: 0.468 PR-AUC in 5-fold cross-validation, 0.064 on the geographic holdout, against a 3.1% prevalence line" loading="lazy">
+          <div class="mission__tags"><span>PYTHON</span><span>PYTORCH</span><span>SIGLIP</span><span>SCIKIT-LEARN</span><span>APPLE VISION OCR</span><span>PDOK/BAG</span></div>
         </div>
         <div class="mission__stamp mission__stamp--gold">ACTIVE<br>QUEST</div>
       </article>
