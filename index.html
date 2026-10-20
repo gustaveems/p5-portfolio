@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GUSTAVE SOULAS // PHANTOM PORTFOLIO</title>
-  <meta name="description" content="The Phantom Portfolio of Gustave Soulas — Computer Science & AI student at IE University. Status, Missions, Equipment, Confidants and Contact.">
+  <title>Gustave Soulas — CS &amp; AI Student · Portfolio &amp; CV</title>
+  <meta name="description" content="Gustave Soulas — BSc Computer Science & AI student at IE University, Madrid. Public-data pipelines, LLM agents, ML models and full-stack web apps. Open to Summer 2027 internships.">
   <meta name="author" content="Gustave Soulas">
   <meta name="theme-color" content="#050505">
   <link rel="canonical" href="https://gustaveems.github.io/p5-portfolio/">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="GUSTAVE SOULAS // PHANTOM PORTFOLIO">
+  <meta property="og:title" content="Gustave Soulas — CS & AI Student · Portfolio & CV">
   <meta property="og:description" content="BSc CS & AI student at IE University. Public-data pipelines, LLM agents, ML models, full-stack web apps. Open to Summer 2027 internships.">
   <meta property="og:url" content="https://gustaveems.github.io/p5-portfolio/">
   <meta property="og:image" content="https://gustaveems.github.io/p5-portfolio/assets/og-cover.png">
@@ -18,6 +18,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Kanit:ital,wght@0,600;0,800;1,600;1,800;1,900&family=Playfair+Display:ital,wght@1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <script>
+    /* apply CV view before first paint so #cv links never flash the themed site */
+    document.documentElement.classList.remove("no-js");
+    if (location.hash === "#cv") document.documentElement.classList.add("cv-mode");
+  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -25,6 +30,7 @@
     "name": "Gustave Soulas",
     "url": "https://gustaveems.github.io/p5-portfolio/",
     "email": "gustaveams@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "IE University — BSc Computer Science & AI" },
     "knowsAbout": ["Python", "LLM Agents", "Machine Learning", "Full-stack Web", "SQL/PostGIS", "API Integration"],
     "sameAs": [
@@ -37,19 +43,17 @@
 </head>
 <body>
 
-  <!-- ============ CALLING CARD / INTRO OVERLAY ============ -->
-  <div id="intro" class="intro" role="dialog" aria-modal="true" aria-label="Intro screen">
+  <a class="skip-link" href="#experience">Skip to content</a>
+
+  <!-- ============ CALLING CARD (plays once, never blocks) ============ -->
+  <div id="intro" class="intro" aria-hidden="true">
     <div class="intro__halftone"></div>
     <div class="intro__slash"></div>
     <div class="intro__card">
       <p class="intro__from">FROM</p>
-      <h1 class="intro__name"><span class="ransom ransom--serif">GUSTAVE</span> <span class="ransom ransom--block">SOULAS</span></h1>
-      <p class="intro__msg">The distorted desires of your inbox will be stolen.<br>You have received a Calling Card.</p>
-      <button id="enterBtn" class="btn btn--red intro__btn" data-sfx="confirm">
-        TAKE YOUR TIME <span class="key">X</span>
-      </button>
+      <p class="intro__name"><span class="ransom ransom--serif">GUSTAVE</span> <span class="ransom ransom--block">SOULAS</span></p>
+      <p class="intro__msg">You have received a Calling Card.</p>
     </div>
-    <p class="intro__hint">click anywhere / press X to enter</p>
   </div>
 
   <!-- ============ FULLSCREEN SLASH TRANSITION ============ -->
@@ -57,29 +61,34 @@
     <span class="slash-wipe__word"></span>
   </div>
 
-  <!-- ============ NAVIGATION (PAUSE MENU) ============ -->
+  <!-- ============ NAVIGATION ============ -->
   <header class="topbar">
-    <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false" data-sfx="hover">
+    <button id="menuToggle" class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu" data-sfx="hover">
       <span></span><span></span><span></span>
     </button>
-    <a href="#hero" class="topbar__logo" data-nav data-sfx="hover">P5<span>.</span>PORTFOLIO</a>
-    <button id="soundToggle" class="sound-toggle" aria-label="Toggle sound" data-sfx="none">♪</button>
+    <a href="#hero" class="topbar__logo" data-nav data-sfx="hover">G<span>.</span>SOULAS</a>
+    <div class="topbar__actions">
+      <button id="printBtn" class="tb-btn cv-only-inline" type="button">PRINT / SAVE PDF</button>
+      <button id="cvToggle" class="tb-btn" type="button" aria-pressed="false">CV VIEW</button>
+      <button id="soundToggle" class="sound-toggle" type="button" aria-label="Toggle sound" data-sfx="none">♪</button>
+    </div>
   </header>
 
   <nav id="menu" class="menu" aria-label="Main navigation" aria-hidden="true">
     <div class="menu__halftone"></div>
     <ul class="menu__list">
-      <li><a href="#status"    data-nav data-sfx="hover"><em>01</em> STATUS<em class="jp" lang="ja">ステータス</em></a></li>
-      <li><a href="#missions"  data-nav data-sfx="hover"><em>02</em> MISSIONS<em class="jp" lang="ja">ミッション</em></a></li>
-      <li><a href="#equipment" data-nav data-sfx="hover"><em>03</em> EQUIPMENT<em class="jp" lang="ja">装備</em></a></li>
-      <li><a href="#confidants" data-nav data-sfx="hover"><em>04</em> CONFIDANTS<em class="jp" lang="ja">仲間 · SOCIAL LINK</em></a></li>
-      <li><a href="#contact" data-nav data-sfx="hover"><em>05</em> CONTACT<em class="jp">連絡先</em></a></li>
+      <li><a href="#experience" data-nav data-label="EXPERIENCE" data-sfx="hover"><em>01</em> EXPERIENCE<em class="jp" lang="ja">経歴</em></a></li>
+      <li><a href="#hackathons" data-nav data-label="HACKATHONS" data-sfx="hover"><em>02</em> HACKATHONS<em class="jp" lang="ja">ハッカソン</em></a></li>
+      <li><a href="#projects"   data-nav data-label="PROJECTS"   data-sfx="hover"><em>03</em> PROJECTS<em class="jp" lang="ja">ミッション</em></a></li>
+      <li><a href="#education"  data-nav data-label="EDUCATION"  data-sfx="hover"><em>04</em> EDUCATION<em class="jp" lang="ja">学歴</em></a></li>
+      <li><a href="#skills"     data-nav data-label="SKILLS"     data-sfx="hover"><em>05</em> SKILLS<em class="jp" lang="ja">装備</em></a></li>
+      <li><a href="#contact"    data-nav data-label="CONTACT"    data-sfx="hover"><em>06</em> CONTACT<em class="jp" lang="ja">連絡先</em></a></li>
     </ul>
-    <p class="menu__foot">PRESS <span class="key key--dark">B</span> TO CLOSE</p>
+    <p class="menu__foot">PRESS <span class="key key--dark">ESC</span> TO CLOSE</p>
   </nav>
 
-  <!-- ============ HERO ============ -->
   <main>
+  <!-- ============ HERO / SUMMARY ============ -->
   <section id="hero" class="hero">
     <div class="hero__ransombg" aria-hidden="true">
       <span style="--x:4%;--y:8%;--r:-14deg">SKILL</span>
@@ -93,125 +102,104 @@
     </div>
 
     <div class="hero__inner">
-      <p class="hero__kicker reveal">BSc COMPUTER SCIENCE &amp; AI @ IE UNIVERSITY · MADRID — CODE NAME:</p>
-      <h2 class="hero__name reveal" style="--d:.08s">
+      <p class="hero__kicker reveal">BSc COMPUTER SCIENCE &amp; AI · IE UNIVERSITY, MADRID · CLASS OF 2027</p>
+      <h1 class="hero__name reveal" style="--d:.08s">
         <span class="hero__name-g">GUSTAVE</span>
-        <span class="hero__name-s">SOULAS<sup>™</sup></span>
-      </h2>
+        <span class="hero__name-s">SOULAS</span>
+      </h1>
       <p class="hero__codename reveal" style="--d:.16s"><span>“PHANTOM DEV”</span></p>
       <p class="hero__line reveal" style="--d:.24s">Third-year CS &amp; AI student who ships working products end to end:
-        <b>public-data pipelines</b>, <b>LLM agents</b>, <b>ML models</b>, <b>full-stack web apps</b>.</p>
+        <b>public-data pipelines</b>, <b>LLM agents</b>, <b>ML models</b> and <b>full-stack web apps</b>.</p>
 
-      <div class="hero__chips reveal" style="--d:.32s">
-        <div class="chip"><em>LV</em><b>21</b></div>
-        <div class="chip"><em>ARCANA</em><b>MAGICIAN</b></div>
-        <div class="chip chip--hp"><em>HP</em><div class="bar bar--sm"><i style="--v:92%"></i></div></div>
-        <div class="chip chip--sp"><em>SP</em><div class="bar bar--sm"><i style="--v:78%"></i></div></div>
-      </div>
+      <p class="hero__contact cv-only">
+        Madrid, Spain ·
+        <a href="mailto:gustaveams@gmail.com">gustaveams@gmail.com</a> ·
+        <a href="https://www.linkedin.com/in/gustave-soulas-8b77002a2" target="_blank" rel="noopener">LinkedIn</a> ·
+        <a href="https://github.com/gustaveems" target="_blank" rel="noopener">github.com/gustaveems</a> ·
+        <a href="https://gustaveems.github.io/p5-portfolio/" target="_blank" rel="noopener">gustaveems.github.io/p5-portfolio</a>
+      </p>
+
+      <ul class="hero__chips reveal" style="--d:.32s" aria-label="Quick facts">
+        <li class="chip chip--open"><em>STATUS</em><b>OPEN TO SUMMER 2027 INTERNSHIPS</b></li>
+        <li class="chip"><em>BASE</em><b>MADRID, ES</b></li>
+        <li class="chip"><em>SPEAKS</em><b>EN · FR · ES · ZH</b></li>
+      </ul>
 
       <div class="hero__actions reveal" style="--d:.4s">
-        <a href="assets/CV_Gustave_Soulas_2026.pdf" class="btn btn--yellow" download data-sfx="confirm">DOWNLOAD CV</a>
-        <a href="#missions" class="btn btn--red" data-nav data-sfx="confirm">VIEW MISSIONS</a>
-        <a href="#contact" class="btn btn--ghost" data-nav data-sfx="confirm">CONTACT ME</a>
+        <a href="#cv" id="cvOpen" class="btn btn--yellow" data-sfx="confirm">VIEW CV</a>
+        <a href="assets/CV_Gustave_Soulas_2026.pdf" class="btn btn--red" download data-sfx="confirm">DOWNLOAD PDF</a>
+        <a href="mailto:gustaveams@gmail.com" class="btn btn--ghost" data-sfx="confirm">EMAIL ME</a>
       </div>
     </div>
 
     <div class="hero__hud" aria-hidden="true">
       <div class="hud__date"><em id="hudDate">SEP 20</em><span id="hudCity">MADRID, ES</span></div>
-      <div class="hud__wallet"><em>¥</em><span id="hudYen">∞</span></div>
     </div>
-    <div class="hero__prompt"><span class="key">X</span> PRESS TO CONTINUE</div>
     <div class="hero__scrollhint" aria-hidden="true">▼</div>
   </section>
 
-  <!-- ============ STATUS ============ -->
-  <section id="status" class="section section--alt">
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="section section--alt">
     <header class="sec-head reveal">
-      <p class="sec-head__jp" lang="ja">ステータス</p>
-      <h2 class="sec-head__title">STATUS</h2>
-      <p class="sec-head__sub">// skills · proficiency · growth</p>
+      <p class="sec-head__jp" lang="ja">経歴</p>
+      <h2 class="sec-head__title" data-cv="Experience">EXPERIENCE<span class="sec-head__small">/ WORK HISTORY</span></h2>
+      <p class="sec-head__sub">// internships · roles · responsibilities</p>
     </header>
-
-    <div class="status-grid">
-      <div class="panel panel--slash reveal" style="--d:.1s">
-        <h3 class="panel__title">PARAMETERS</h3>
-        <ul class="stats">
-          <li><em>PYTHON</em><div class="bar"><i style="--v:90%"></i><b>90</b></div></li>
-          <li><em>LLM / AI AGENTS</em><div class="bar"><i style="--v:86%"></i><b>86</b></div></li>
-          <li><em>API INTEGRATION</em><div class="bar"><i style="--v:88%"></i><b>88</b></div></li>
-          <li><em>JAVASCRIPT / NODE</em><div class="bar"><i style="--v:82%"></i><b>82</b></div></li>
-          <li><em>SQL / POSTGIS</em><div class="bar"><i style="--v:80%"></i><b>80</b></div></li>
-          <li><em>MACHINE LEARNING</em><div class="bar"><i style="--v:76%"></i><b>76</b></div></li>
-          <li><em>C / JAVA</em><div class="bar"><i style="--v:74%"></i><b>74</b></div></li>
-          <li><em>FULL-STACK WEB</em><div class="bar"><i style="--v:84%"></i><b>84</b></div></li>
-        </ul>
-      </div>
-
-      <div class="panel panel--slash reveal" style="--d:.2s">
-        <h3 class="panel__title">SOCIAL LINKS <span class="rank">★</span></h3>
-        <ul class="links">
-          <li><em>ENGLISH</em><span class="stars">★★★★★</span><b>NATIVE</b></li>
-          <li><em>FRENCH</em><span class="stars">★★★★★</span><b>NATIVE</b></li>
-          <li><em>SPANISH</em><span class="stars">★★★★</span><b>FLUENT</b></li>
-          <li><em>CHINESE</em><span class="stars">★★★</span><b>PROFICIENT</b></li>
-        </ul>
-        <div class="divider-slash"></div>
-        <h3 class="panel__title">PERSONA REGISTRY <span class="jp-inline" lang="ja">学歴</span></h3>
-        <ul class="edu">
-          <li>
-            <em>IE UNIVERSITY — MADRID</em>
-            <b>BSc Computer Science &amp; Artificial Intelligence</b>
-            <span>THIRD YEAR · EXPECTED 2027 · ML, ALGORITHMS &amp; DATA STRUCTURES, PYTHON, C, JAVA</span>
-          </li>
-          <li>
-            <em>NORD ANGLIA SCHOOL — DUBAI</em>
-            <b>International Baccalaureate Diploma</b>
-            <span>GRADUATED JUNE 2024</span>
-          </li>
-          <li>
-            <em>LFIS — SHANGHAI</em>
-            <b>French Curriculum</b>
-            <span>2011 — 2022</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ MISSIONS ============ -->
-  <section id="missions" class="section">
-    <header class="sec-head reveal">
-      <p class="sec-head__jp" lang="ja">ミッション</p>
-      <h2 class="sec-head__title">MISSIONS<span class="sec-head__small">/ PALACES CLEARED</span></h2>
-      <p class="sec-head__sub">// projects · hackathons · experience · treasure obtained</p>
-    </header>
-
-    <div class="gh-note reveal" style="--d:.06s">
-      <span class="gh-note__star">✱</span>
-      <p>My previous GitHub account was banned, taking many past works with it — but the phantom
-      never loses a treasure map. The core repositories have been <b>recovered and republished</b>:
-      ParkScan, the Health Dashboard, the AI stylist, the PC Builder &amp; the datathon models.
-      Current account: <b>@gustaveems</b> · campus: <b>@totallynotgus</b>.</p>
-    </div>
 
     <div class="missions">
       <article class="mission reveal" style="--d:.1s">
         <div class="mission__num">01</div>
         <div class="mission__body">
-          <p class="mission__meta">IE UNIVERSITY HACKATHON 2026 · <b>FULL-STACK + AI</b></p>
-          <h3 class="mission__title">PARKSCAN NL — VACANT-PROPERTY AI</h3>
+          <p class="mission__meta">Lefty · Paris, France · Mar 2023 · <b>Social analytics</b></p>
+          <h3 class="mission__title">Software &amp; Data Intern</h3>
+          <ul>
+            <li>Built a <b>YouTube Data API</b> program to detect and flag harmful video content for brand-safety screening.</li>
+            <li>Contributed to influencer categorisation using <b>ChatGPT &amp; Instagram analysis</b> for Lefty's luxury client portfolio.</li>
+          </ul>
+          <div class="mission__tags"><span>PYTHON</span><span>OPENAI</span><span>YOUTUBE API</span><span>IG DATA</span></div>
+        </div>
+      </article>
+
+      <article class="mission reveal" style="--d:.16s">
+        <div class="mission__num">02</div>
+        <div class="mission__body">
+          <p class="mission__meta">Fotografiska · Shanghai, China · May 2022 · <b>Museum visitor app</b></p>
+          <h3 class="mission__title">App Development Intern</h3>
+          <ul>
+            <li>Managed development of the museum's visitor app: researched comparable apps &amp; ticketing systems, gathered requirements, curated exhibition content and supervised the programming work.</li>
+          </ul>
+          <div class="mission__tags"><span>PRODUCT</span><span>RESEARCH</span><span>COORDINATION</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ HACKATHONS ============ -->
+  <section id="hackathons" class="section">
+    <header class="sec-head reveal">
+      <p class="sec-head__jp" lang="ja">ハッカソン</p>
+      <h2 class="sec-head__title" data-cv="Hackathons &amp; Competitions">HEISTS<span class="sec-head__small">/ HACKATHONS &amp; COMPETITIONS</span></h2>
+      <p class="sec-head__sub">// built under the clock · live briefs · real data</p>
+    </header>
+
+    <div class="missions">
+      <article class="mission reveal" style="--d:.1s">
+        <div class="mission__num">01</div>
+        <div class="mission__body">
+          <p class="mission__meta">IE University Hackathon · 2026 · <b>Full-stack + AI</b></p>
+          <h3 class="mission__title">ParkScan NL — Vacant-Property AI</h3>
           <ul>
             <li>Full-stack web app mapping the Netherlands to find vacant commercial buildings for parking conversion — cutting analyst work from <b>3–5 hours to ~15 minutes</b> per building (live brief: SULC Advisors).</li>
             <li>Integrated three official Dutch open-data APIs — <b>BAG, PDOK, Kadaster</b> — scoring candidates 0–100 on vacancy &amp; parking suitability.</li>
             <li>AI outreach agent drafting a personalised Dutch letter per owner from live building data; <b>n8n</b> email automation with mandatory human approval.</li>
           </ul>
-          <li><a class="inline-link" href="https://github.com/gustaveems/parkscan-nl" target="_blank" rel="noopener">github.com/gustaveems/parkscan-nl ↗</a> · <a class="inline-link" href="https://gustaveems.github.io/parkscan-nl/" target="_blank" rel="noopener">LIVE DEMO ↗</a> — the full app (PDOK scan, scoring, Dutch outreach drafts) runs entirely in your browser.</li>
-            <details class="demo-reveal">
-              <summary>▶&nbsp; WATCH THE HEIST · 0:54 <span class="demo-dur">SCAN → SCORE → DOSSIER → OUTREACH → DASHBOARD</span></summary>
-              <video controls preload="none" playsinline poster="assets/parkscan-demo-poster.png"
-                     src="assets/parkscan-flow.mp4" aria-label="ParkScan NL demo walkthrough: scan Amsterdam Centrum via live PDOK data, review candidate scores, open the owner dossier, queue outreach and view the dashboard."></video>
-              <p class="demo-note">Recorded live from <b>gustaveems.github.io/parkscan-nl</b> — no staging, no mock data.</p>
-            </details>
+          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/parkscan-nl" target="_blank" rel="noopener">Code ↗</a> <a class="inline-link" href="https://gustaveems.github.io/parkscan-nl/" target="_blank" rel="noopener">Live demo ↗</a> <span>the full app runs entirely in your browser</span></p>
+          <details class="demo-reveal">
+            <summary>▶&nbsp; WATCH THE DEMO · 0:54 <span class="demo-dur">SCAN → SCORE → DOSSIER → OUTREACH → DASHBOARD</span></summary>
+            <video controls preload="none" playsinline poster="assets/parkscan-demo-poster.png"
+                   src="assets/parkscan-flow.mp4" aria-label="ParkScan NL demo walkthrough: scan Amsterdam Centrum via live PDOK data, review candidate scores, open the owner dossier, queue outreach and view the dashboard."></video>
+            <p class="demo-note">Recorded live from <b>gustaveems.github.io/parkscan-nl</b> — no staging, no mock data.</p>
+          </details>
           <div class="mission__tags"><span>NODE/EXPRESS</span><span>POSTGRESQL+POSTGIS</span><span>MAPLIBRE</span><span>GEMINI 2.5</span><span>PUPPETEER</span><span>n8n</span></div>
         </div>
         <div class="mission__stamp">TREASURE<br>OBTAINED</div>
@@ -220,13 +208,13 @@
       <article class="mission reveal" style="--d:.16s">
         <div class="mission__num">02</div>
         <div class="mission__body">
-          <p class="mission__meta">IE SCITECH SUSTAINABILITY DATATHON 2026 · <b>DATA / MODELLING</b></p>
-          <h3 class="mission__title">IBERDROLA &amp; AQUALIA CHALLENGES</h3>
+          <p class="mission__meta">IE SciTech Sustainability Datathon · 2026 · <b>Data / modelling</b></p>
+          <h3 class="mission__title">Iberdrola &amp; Aqualia Challenges</h3>
           <ul>
             <li><b>Iberdrola — Smart Electric Mobility:</b> modelled minimum charging-point requirements from road networks, station &amp; EV-adoption data; flagged grid-congestion areas and reinforcement strategies.</li>
             <li><b>Aqualia — ESG materiality:</b> identified three emerging material topics grounded in CSRD/ESRS, assessed risk, operations and strategy impact.</li>
           </ul>
-          <li><a class="inline-link" href="https://github.com/gustaveems/ev-charging-datathon" target="_blank" rel="noopener">github.com/gustaveems/ev-charging-datathon ↗</a> — demand model &amp; materiality matrix notebooks.</li>
+          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/ev-charging-datathon" target="_blank" rel="noopener">Code ↗</a> <span>demand model &amp; materiality matrix notebooks</span></p>
           <div class="mission__tags"><span>PUBLIC DATA</span><span>MODELLING</span><span>ESG / CSRD</span></div>
         </div>
         <div class="mission__stamp">TREASURE<br>OBTAINED</div>
@@ -235,224 +223,231 @@
       <article class="mission reveal" style="--d:.22s">
         <div class="mission__num">03</div>
         <div class="mission__body">
-          <p class="mission__meta">CURSOR HACKATHON 2026 · <b>ACCESSIBILITY</b></p>
-          <h3 class="mission__title">VOCABLE — READING TOOL</h3>
+          <p class="mission__meta">Cursor Hackathon · 2026 · <b>Accessibility</b></p>
+          <h3 class="mission__title">Vocable — Reading Tool</h3>
           <ul>
             <li>Paste any link: the app extracts page content, cleans it and reads it aloud — no navigating cluttered pages with a screen reader.</li>
-            <li>Built for users with impaired eyesight. <a class="inline-link" href="https://github.com/issamarida/vocable" target="_blank" rel="noopener">github.com/issamarida/vocable ↗</a></li>
+            <li>Built for users with impaired eyesight.</li>
           </ul>
+          <p class="mission__links"><a class="inline-link" href="https://github.com/issamarida/vocable" target="_blank" rel="noopener">Code ↗</a></p>
           <div class="mission__tags"><span>WEB</span><span>A11Y</span><span>TTS</span></div>
         </div>
         <div class="mission__stamp">TREASURE<br>OBTAINED</div>
       </article>
+    </div>
+  </section>
 
-      <article class="mission reveal" style="--d:.28s">
-        <div class="mission__num">04</div>
-        <div class="mission__body">
-          <p class="mission__meta">SELF-DIRECTED · 2025 → NOW · <b>LOCAL MODELS</b></p>
-          <h3 class="mission__title">PERSONAL HEALTH DASHBOARD</h3>
-          <ul>
-            <li>Self-hosted web app consolidating Fitbit data — sleep, workouts, calories and hobby tracking in one place.</li>
-            <li>Calorie tracker on a locally hosted LLM (<b>Ollama</b>): parses free-text food entries into precise calorie &amp; macro breakdowns, zero third-party API dependency.</li>
-          </ul>
-          <li><a class="inline-link" href="https://github.com/gustaveems/Health-Dashboard" target="_blank" rel="noopener">github.com/gustaveems/Health-Dashboard ↗</a> · <a class="inline-link" href="https://health-dashboard-psi-ten.vercel.app" target="_blank" rel="noopener">live app ↗</a> · <a class="inline-link" href="https://github.com/gustaveems/health-dashboard-lite" target="_blank" rel="noopener">zero-dep rewrite ↗</a></li>
-          <div class="mission__tags"><span>SELF-HOSTED</span><span>OLLAMA</span><span>FITBIT API</span><span>NEXT.JS</span></div>
-        </div>
-        <div class="mission__stamp mission__stamp--gold">ACTIVE<br>QUEST</div>
-      </article>
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="section section--alt">
+    <header class="sec-head reveal">
+      <p class="sec-head__jp" lang="ja">ミッション</p>
+      <h2 class="sec-head__title" data-cv="Projects">MISSIONS<span class="sec-head__small">/ PROJECTS</span></h2>
+      <p class="sec-head__sub">// self-directed builds &amp; coursework · newest first</p>
+    </header>
 
-      <article class="mission reveal" style="--d:.34s">
-        <div class="mission__num">05</div>
+    <div class="missions">
+      <article class="mission reveal" style="--d:.1s">
+        <div class="mission__num">01</div>
         <div class="mission__body">
-          <p class="mission__meta">IE UNIVERSITY · 2025 · <b>ML COURSEWORK</b></p>
-          <h3 class="mission__title">UFC MATCHUP PREDICTION</h3>
+          <p class="mission__meta">Self-directed · 2026 → present · <b>ML · computer vision · public data</b></p>
+          <h3 class="mission__title">VacancyOracle — The ML Successor</h3>
           <ul>
-            <li>Trained a model on historical fighter &amp; bout statistics to predict the most competitive matchups to schedule.</li>
-            <li>115-dim matchup vectors with leak-safe rolling last-5 features; XGBoost / LogReg / NN compared with booking-feature ablations. Recovered from editor snapshots after the account purge.</li>
+            <li>ParkScan's scoring rules graduate to learned models: <b>701 hand-labeled Dutch commercial addresses</b>, <b>4,071 Street View images embedded locally</b> with SigLIP, evaluation protocol frozen before any model was fit.</li>
+            <li>First light: zero-shot vision doubles the rules engine's PR-AUC (0.048 vs 0.032 vs 0.024 majority) — an active-learning batch is now running to fix positive-class sparsity.</li>
           </ul>
-          <div class="mission__tags"><span>PYTHON</span><span>SCIKIT/XGB</span><span>TORCH</span><span>STATS</span><a class="inline-link" href="https://github.com/gustaveems/fight-matchmaker" target="_blank" rel="noopener">REPO ↗</a></div>
-        </div>
-        <div class="mission__stamp">LV UP</div>
-      </article>
-
-      <article class="mission reveal" style="--d:.34s">
-        <div class="mission__num">06</div>
-        <div class="mission__body">
-          <p class="mission__meta">SELF-DIRECTED · 2026 · <b>AI APP · PWA</b></p>
-          <h3 class="mission__title">STYLIST — WARDROBE AI AGENT</h3>
-          <ul>
-            <li>Closet &amp; event planner with <b>“Daily Three” outfit recommendations</b> — an AI layer explains every pick; Supabase Postgres + storage with built-in auth.</li>
-            <li>Shipped as an installable PWA. <a class="inline-link" href="https://github.com/gustaveems/stylist-aiagent" target="_blank" rel="noopener">github.com/gustaveems/stylist-aiagent ↗</a> · <a class="inline-link" href="https://aiagent-tau-nine.vercel.app" target="_blank" rel="noopener">live ↗</a></li>
-          </ul>
-          <div class="mission__tags"><span>NEXT.JS</span><span>SUPABASE</span><span>AI AGENT</span><span>PWA</span></div>
-        </div>
-        <div class="mission__stamp mission__stamp--gold">ACTIVE<br>QUEST</div>
-      </article>
-
-      <article class="mission reveal" style="--d:.37s">
-        <div class="mission__num">07</div>
-        <div class="mission__body">
-          <p class="mission__meta">PERSONAL PROJECT · 2025 → 2026 · <b>DATA-DRIVEN FULL-STACK</b></p>
-          <h3 class="mission__title">PC BUILDER ADVISOR</h3>
-          <ul>
-            <li>Compatibility scoring across a curated component dataset with a live price-scraper pipeline, build comparison &amp; assembly checklist.</li>
-            <li>Still in production. <a class="inline-link" href="https://github.com/gustaveems/pc-builder-advisor" target="_blank" rel="noopener">github.com/gustaveems/pc-builder-advisor ↗</a> · <a class="inline-link" href="https://computeradvisor.vercel.app" target="_blank" rel="noopener">live ↗</a></li>
-          </ul>
-          <div class="mission__tags"><span>NEXT.JS</span><span>SCRAPERS</span><span>PRICING LIB</span></div>
-        </div>
-        <div class="mission__stamp">TREASURE<br>OBTAINED</div>
-      </article>
-
-      <article class="mission reveal" style="--d:.44s">
-        <div class="mission__num">08</div>
-        <div class="mission__body">
-          <p class="mission__meta">SELF-DIRECTED · 2026 → NOW · <b>ML · COMPUTER VISION · PUBLIC DATA</b></p>
-          <h3 class="mission__title">VACANCYORACLE — THE ML SUCCESSOR</h3>
-          <ul>
-            <li>ParkScan's scoring rules graduate to learned models: <b>701 hand-labeled Dutch commercial addresses</b> (one session), <b>4,071 Street View images embedded locally</b> with SigLIP, evaluation protocol frozen before any model was fit.</li>
-            <li>First light: zero-shot vision doubles the rules engine's PR-AUC (0.048 vs 0.032 vs 0.024 majority) — active-learning batch now running to fix the positive-class sparsity.</li>
-            <li><a class="inline-link" href="https://github.com/gustaveems/vacancy-oracle" target="_blank" rel="noopener">github.com/gustaveems/vacancy-oracle ↗</a> — baselines, label studio &amp; findings published as they land.</li>
-          </ul>
+          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/vacancy-oracle" target="_blank" rel="noopener">Code ↗</a> <span>baselines, label studio &amp; findings published as they land</span></p>
           <img class="mission-figure" src="assets/pr_curves.png" alt="Precision-recall curves: SigLIP zero-shot vision vs ParkScan rules vs random on 539 human labels" loading="lazy">
           <div class="mission__tags"><span>PYTHON</span><span>PYTORCH</span><span>SIGLIP</span><span>PDOK/BAG</span><span>ACTIVE LEARNING</span></div>
         </div>
         <div class="mission__stamp mission__stamp--gold">ACTIVE<br>QUEST</div>
       </article>
 
-      <article class="mission reveal" style="--d:.4s">
-        <div class="mission__num">09</div>
+      <article class="mission reveal" style="--d:.14s">
+        <div class="mission__num">02</div>
         <div class="mission__body">
-          <p class="mission__meta">LEFTY — PARIS, FR · MAR 2023 · <b>SOFTWARE &amp; DATA INTERN</b></p>
-          <h3 class="mission__title">THE SOCIAL ANALYTICS PALACE</h3>
+          <p class="mission__meta">Self-directed · 2026 · <b>AI app · PWA</b></p>
+          <h3 class="mission__title">Stylist — Wardrobe AI Agent</h3>
           <ul>
-            <li>Built a <b>YouTube Data API</b> program to detect and flag harmful video content for brand-safety screening.</li>
-            <li>Contributed to influencer categorisation using <b>ChatGPT &amp; Instagram analysis</b> for Lefty's luxury client portfolio.</li>
+            <li>Closet &amp; event planner with <b>“Daily Three” outfit recommendations</b> — an AI layer explains every pick; Supabase Postgres + storage with built-in auth.</li>
+            <li>Shipped as an installable PWA.</li>
           </ul>
-          <div class="mission__tags"><span>PYTHON</span><span>OPENAI</span><span>YOUTUBE API</span><span>IG DATA</span></div>
+          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/stylist-aiagent" target="_blank" rel="noopener">Code ↗</a> <a class="inline-link" href="https://aiagent-tau-nine.vercel.app" target="_blank" rel="noopener">Live app ↗</a></p>
+          <div class="mission__tags"><span>NEXT.JS</span><span>SUPABASE</span><span>AI AGENT</span><span>PWA</span></div>
+        </div>
+        <div class="mission__stamp mission__stamp--gold">ACTIVE<br>QUEST</div>
+      </article>
+
+      <article class="mission reveal" style="--d:.18s">
+        <div class="mission__num">03</div>
+        <div class="mission__body">
+          <p class="mission__meta">Personal project · 2025 → 2026 · <b>Data-driven full-stack</b></p>
+          <h3 class="mission__title">PC Builder Advisor</h3>
+          <ul>
+            <li>Compatibility scoring across a curated component dataset with a live price-scraper pipeline, build comparison &amp; assembly checklist.</li>
+          </ul>
+          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/pc-builder-advisor" target="_blank" rel="noopener">Code ↗</a> <a class="inline-link" href="https://computeradvisor.vercel.app" target="_blank" rel="noopener">Live app ↗</a></p>
+          <div class="mission__tags"><span>NEXT.JS</span><span>SCRAPERS</span><span>PRICING LIB</span></div>
         </div>
         <div class="mission__stamp">TREASURE<br>OBTAINED</div>
       </article>
 
-      <article class="mission reveal" style="--d:.46s">
-        <div class="mission__num">10</div>
+      <article class="mission reveal" style="--d:.22s">
+        <div class="mission__num">04</div>
         <div class="mission__body">
-          <p class="mission__meta">FOTOGRAFISKA — SHANGHAI, CN · MAY 2022 · <b>APP DEV INTERN</b></p>
-          <h3 class="mission__title">THE MUSEUM APP HEIST</h3>
+          <p class="mission__meta">Self-directed · 2025 → present · <b>Local models</b></p>
+          <h3 class="mission__title">Personal Health Dashboard</h3>
           <ul>
-            <li>Managed development of the museum's visitor app: researched comparable apps &amp; ticketing systems, gathered requirements, curated exhibition content and supervised the programming work.</li>
+            <li>Self-hosted web app consolidating Fitbit data — sleep, workouts, calories and hobby tracking in one place.</li>
+            <li>Calorie tracker on a locally hosted LLM (<b>Ollama</b>): parses free-text food entries into precise calorie &amp; macro breakdowns, zero third-party API dependency.</li>
           </ul>
-          <div class="mission__tags"><span>PRODUCT</span><span>RESEARCH</span><span>COORDINATION</span></div>
+          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/Health-Dashboard" target="_blank" rel="noopener">Code ↗</a> <a class="inline-link" href="https://health-dashboard-psi-ten.vercel.app" target="_blank" rel="noopener">Live app ↗</a> <a class="inline-link" href="https://github.com/gustaveems/health-dashboard-lite" target="_blank" rel="noopener">Zero-dep rewrite ↗</a></p>
+          <div class="mission__tags"><span>SELF-HOSTED</span><span>OLLAMA</span><span>FITBIT API</span><span>NEXT.JS</span></div>
         </div>
-        <div class="mission__stamp">TREASURE<br>OBTAINED</div>
+        <div class="mission__stamp mission__stamp--gold">ACTIVE<br>QUEST</div>
       </article>
 
-      <article class="mission mission--live reveal" style="--d:.52s">
-        <div class="mission__num">11</div>
+      <article class="mission reveal" style="--d:.26s">
+        <div class="mission__num">05</div>
+        <div class="mission__body">
+          <p class="mission__meta">IE University · 2025 · <b>ML coursework</b></p>
+          <h3 class="mission__title">UFC Matchup Prediction</h3>
+          <ul>
+            <li>Trained a model on historical fighter &amp; bout statistics to predict the most competitive matchups to schedule.</li>
+            <li>115-dim matchup vectors with leak-safe rolling last-5 features; XGBoost / LogReg / NN compared with booking-feature ablations.</li>
+          </ul>
+          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/fight-matchmaker" target="_blank" rel="noopener">Code ↗</a></p>
+          <div class="mission__tags"><span>PYTHON</span><span>SCIKIT/XGB</span><span>TORCH</span><span>STATS</span></div>
+        </div>
+        <div class="mission__stamp">LV UP</div>
+      </article>
+
+      <article class="mission mission--live reveal" style="--d:.3s">
+        <div class="mission__num">✦</div>
         <div class="mission__body">
           <p class="mission__meta">GITHUB — LIVE FEED · <b>ACTIVE</b></p>
-          <h3 class="mission__title">REPOSITORY RAID <span class="blink">●</span></h3>
-          <p class="mission__live" id="repoStatus">Scanning the Metaverse for public repos…</p>
+          <h3 class="mission__title">LATEST REPOSITORIES <span class="blink">●</span></h3>
+          <p class="mission__live" id="repoStatus">Loading public repositories…</p>
           <div class="repos" id="repoGrid"></div>
+          <p class="gh-note">Some older work was lost with a previous GitHub account; the core projects above have been republished under <b>@gustaveems</b>.</p>
         </div>
       </article>
     </div>
   </section>
 
-  <!-- ============ EQUIPMENT ============ -->
-  <section id="equipment" class="section section--alt">
+  <!-- ============ EDUCATION · LANGUAGES · INTERESTS ============ -->
+  <section id="education" class="section">
+    <header class="sec-head reveal">
+      <p class="sec-head__jp" lang="ja">学歴</p>
+      <h2 class="sec-head__title" data-cv="Education">STATUS<span class="sec-head__small">/ EDUCATION &amp; LANGUAGES</span></h2>
+      <p class="sec-head__sub">// schools · certifications · languages · interests</p>
+    </header>
+
+    <div class="status-grid">
+      <div class="panel panel--slash reveal" style="--d:.1s">
+        <h3 class="panel__title">EDUCATION</h3>
+        <ul class="edu">
+          <li>
+            <em>IE University — Madrid, Spain</em>
+            <b>BSc Computer Science &amp; Artificial Intelligence</b>
+            <span>Third year · expected 2027 · coursework: ML, Algorithms &amp; Data Structures, Python, C, Java</span>
+          </li>
+          <li>
+            <em>Nord Anglia International School — Dubai, UAE</em>
+            <b>International Baccalaureate Diploma</b>
+            <span>Graduated June 2024</span>
+          </li>
+          <li>
+            <em>Lycée Français International — Shanghai, China</em>
+            <b>French Curriculum</b>
+            <span>2011 — 2022</span>
+          </li>
+        </ul>
+        <div class="divider-slash"></div>
+        <h3 class="panel__title">CERTIFICATIONS</h3>
+        <ul class="edu">
+          <li>
+            <em>Harvard University</em>
+            <b>CS50 — Introduction to Computer Science</b>
+          </li>
+        </ul>
+      </div>
+
+      <div class="panel panel--slash reveal" style="--d:.2s">
+        <h3 class="panel__title">LANGUAGES</h3>
+        <ul class="links">
+          <li><em>English</em><span class="stars" aria-hidden="true">★★★★★</span><b>Native</b></li>
+          <li><em>French</em><span class="stars" aria-hidden="true">★★★★★</span><b>Native</b></li>
+          <li><em>Spanish</em><span class="stars" aria-hidden="true">★★★★</span><b>Fluent</b></li>
+          <li><em>Mandarin</em><span class="stars" aria-hidden="true">★★★</span><b>Proficient</b></li>
+          <li><em>Kabyle</em><span class="stars" aria-hidden="true">★★★</span><b>Proficient</b></li>
+        </ul>
+        <div class="divider-slash"></div>
+        <h3 class="panel__title">INTERESTS</h3>
+        <ul class="quests">
+          <li><span class="q-tag">SPORT</span><b>Football</b> — first team; 2nd place at an international tournament in Thailand.</li>
+          <li><span class="q-tag">SPORT</span><b>Basketball</b> — regularly on the top school team.</li>
+          <li><span class="q-tag">SEA</span><b>Surfing &amp; Sailing</b></li>
+          <li><span class="q-tag">EXPLORE</span><b>Hiking</b> — week-long expeditions in Tibet &amp; Oman.</li>
+          <li><span class="q-tag">ART</span><b>Painting</b></li>
+          <li><span class="q-tag">MIND</span><b>Chess</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="section section--alt">
     <header class="sec-head reveal">
       <p class="sec-head__jp" lang="ja">装備</p>
-      <h2 class="sec-head__title">EQUIPMENT</h2>
-      <p class="sec-head__sub">// persona arsenal · tools · environment</p>
+      <h2 class="sec-head__title" data-cv="Technical Skills">EQUIPMENT<span class="sec-head__small">/ SKILLS &amp; TOOLS</span></h2>
+      <p class="sec-head__sub">// languages · AI &amp; ML · web &amp; data</p>
     </header>
 
     <div class="equip-grid">
       <div class="equip reveal" style="--d:.1s">
-        <h3>MAIN HAND</h3>
+        <h3>LANGUAGES</h3>
         <div class="equip__items">
-          <span class="gear" data-tip="Primary language">PYTHON</span>
-          <span class="gear" data-tip="Web & scripting">JAVASCRIPT</span>
-          <span class="gear" data-tip="Backend runtime">NODE.JS</span>
-          <span class="gear" data-tip="Coursework core">C</span>
-          <span class="gear" data-tip="Coursework core">JAVA</span>
-          <span class="gear" data-tip="Data retrieval">SQL</span>
+          <span class="gear">Python</span>
+          <span class="gear">JavaScript / Node.js</span>
+          <span class="gear">SQL</span>
+          <span class="gear">C</span>
+          <span class="gear">Java</span>
         </div>
       </div>
       <div class="equip reveal" style="--d:.18s">
-        <h3>OFF HAND</h3>
+        <h3>AI &amp; ML</h3>
         <div class="equip__items">
-          <span class="gear gear--red" data-tip="LLM pipelines">GEMINI</span>
-          <span class="gear gear--red" data-tip="Local models">OLLAMA</span>
-          <span class="gear gear--red" data-tip="LLM integration">OPENAI</span>
-          <span class="gear gear--red" data-tip="Agent workflows">AI AGENTS</span>
+          <span class="gear gear--red">LLM integration</span>
+          <span class="gear gear--red">AI agents</span>
+          <span class="gear gear--red">Gemini · OpenAI · Ollama</span>
+          <span class="gear gear--red">PyTorch</span>
+          <span class="gear gear--red">scikit-learn · XGBoost</span>
+          <span class="gear gear--red">Prompt engineering</span>
         </div>
       </div>
       <div class="equip reveal" style="--d:.26s">
-        <h3>ARMOR</h3>
+        <h3>WEB &amp; DATA</h3>
         <div class="equip__items">
-          <span class="gear" data-tip="Web framework">EXPRESS</span>
-          <span class="gear" data-tip="Geo database">POSTGIS</span>
-          <span class="gear" data-tip="Maps">MAPLIBRE</span>
-          <span class="gear" data-tip="PDF generation">PUPPETEER</span>
-          <span class="gear" data-tip="Automation">n8n</span>
-          <span class="gear" data-tip="Version control">GIT</span>
+          <span class="gear">Next.js</span>
+          <span class="gear">Express</span>
+          <span class="gear">REST APIs</span>
+          <span class="gear">PostgreSQL / PostGIS</span>
+          <span class="gear">Supabase</span>
+          <span class="gear">MapLibre</span>
+          <span class="gear">Puppeteer</span>
+          <span class="gear">n8n</span>
+          <span class="gear">Git</span>
         </div>
       </div>
       <div class="equip equip--persona reveal" style="--d:.34s">
         <div class="persona-card">
-          <div class="persona-card__burst">!!</div>
+          <div class="persona-card__burst" aria-hidden="true">!!</div>
           <h3>PERSONA</h3>
           <p class="persona-card__name">MERAKI</p>
-          <p class="persona-card__arcana">ARCANA: MAGICIAN · LV 21</p>
+          <p class="persona-card__arcana">ARCANA: MAGICIAN</p>
           <p class="persona-card__desc">"Ships working AI products end to end — from public data to deployed agents."</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============ CONFIDANTS ============ -->
-  <section id="confidants" class="section">
-    <header class="sec-head reveal">
-      <p class="sec-head__jp" lang="ja">仲間</p>
-      <h2 class="sec-head__title">CONFIDANTS</h2>
-      <p class="sec-head__sub">// social links · side quests · the crew</p>
-    </header>
-
-    <div class="conf-grid">
-      <a class="conf conf--gh reveal" style="--d:.1s" href="https://github.com/gustaveems" target="_blank" rel="noopener" data-sfx="confirm">
-        <div class="conf__rank">RANK MAX</div>
-        <h3>@gustaveems</h3>
-        <p>PRIMARY GITHUB · REPOS &amp; COMMITS</p>
-        <div class="conf__stats" data-gh="gustaveems"><span>…</span></div>
-      </a>
-      <a class="conf conf--gh reveal" style="--d:.18s" href="https://github.com/totallynotgus" target="_blank" rel="noopener" data-sfx="confirm">
-        <div class="conf__rank">RANK UP</div>
-        <h3>@totallynotgus</h3>
-        <p>CAMPUS LINK · IE UNIVERSITY</p>
-        <div class="conf__stats" data-gh="totallynotgus"><span>…</span></div>
-      </a>
-      <a class="conf conf--li reveal" style="--d:.26s" href="https://www.linkedin.com/in/gustave-soulas-8b77002a2" target="_blank" rel="noopener" data-sfx="confirm">
-        <div class="conf__rank conf__rank--li">RANK UP</div>
-        <h3>GUSTAVE SOULAS</h3>
-        <p>LINKEDIN · PROFESSIONAL NETWORK</p>
-      </a>
-      <a class="conf reveal" style="--d:.34s" href="mailto:gustaveams@gmail.com" data-sfx="confirm">
-        <div class="conf__rank conf__rank--w">MAIL</div>
-        <h3>GUSTAVEAMS@GMAIL.COM</h3>
-        <p>DIRECT LINE · REPLY WITHIN 24H</p>
-      </a>
-    </div>
-
-    <div class="side-quests reveal" style="--d:.34s">
-      <h3 class="panel__title">SIDE QUESTS <span class="jp-inline" lang="ja">課外活動</span></h3>
-      <ul class="quests">
-        <li><span class="q-tag">SPORT</span><b>Football</b> — first team; 2nd place at an international tournament in Thailand. <em>2018→NOW</em></li>
-        <li><span class="q-tag">SPORT</span><b>Basketball</b> — regularly on the top school team. <em>2018→NOW</em></li>
-        <li><span class="q-tag">SEA</span><b>Surfing &amp; Sailing</b> — saltwater is a second home. <em>ONGOING</em></li>
-        <li><span class="q-tag">EXPLORE</span><b>Hiking</b> — week-long expeditions in Tibet &amp; Oman. <em>2018→NOW</em></li>
-        <li><span class="q-tag">ART</span><b>Painting</b> — the aesthetic eye behind the UI work. <em>ONGOING</em></li>
-        <li><span class="q-tag">MIND</span><b>Chess</b> — strategy is a lifestyle. <em>∞</em></li>
-      </ul>
     </div>
   </section>
 
@@ -460,52 +455,47 @@
   <section id="contact" class="section section--dark">
     <header class="sec-head reveal">
       <p class="sec-head__jp" lang="ja">連絡先</p>
-      <h2 class="sec-head__title">CONTACT</h2>
-      <p class="sec-head__sub">// direct line · no forms, no servers — just reach out</p>
+      <h2 class="sec-head__title" data-cv="Contact">CONTACT</h2>
+      <p class="sec-head__sub">// open to Summer 2027 internships &amp; collaborations</p>
     </header>
 
     <div class="contact-grid">
       <a class="ccard ccard--red reveal" style="--d:.1s" href="mailto:gustaveams@gmail.com" data-sfx="confirm">
-        <em>EMAIL · PERSONAL</em>
+        <em>EMAIL</em>
         <b>gustaveams@gmail.com</b>
-        <span>tap to open your mail client ➤</span>
+        <span>replies within 24h ➤</span>
       </a>
-      <a class="ccard reveal" style="--d:.14s" href="mailto:gamsoulas.ieu2024@student.ie.edu" data-sfx="confirm">
-        <em>EMAIL · SCHOOL</em>
-        <b>gamsoulas.ieu2024@student.ie.edu</b>
-        <span>IE University alias ➤</span>
-      </a>
-      <a class="ccard reveal" style="--d:.26s" href="https://www.linkedin.com/in/gustave-soulas-8b77002a2" target="_blank" rel="noopener" data-sfx="confirm">
+      <a class="ccard reveal" style="--d:.16s" href="https://www.linkedin.com/in/gustave-soulas-8b77002a2" target="_blank" rel="noopener" data-sfx="confirm">
         <em>LINKEDIN</em>
         <b>Gustave Soulas</b>
         <span>professional profile ↗</span>
       </a>
-      <a class="ccard reveal" style="--d:.34s" href="https://github.com/gustaveems" target="_blank" rel="noopener" data-sfx="confirm">
-        <em>GITHUB · MAIN</em>
-        <b>github.com/gustaveems</b>
-        <span>repos, commits &amp; live stats ↗</span>
-      </a>
-      <a class="ccard reveal" style="--d:.42s" href="https://github.com/totallynotgus" target="_blank" rel="noopener" data-sfx="confirm">
-        <em>GITHUB · CAMPUS</em>
-        <b>github.com/totallynotgus</b>
-        <span>IE University link ↗</span>
-      </a>
-      <a class="ccard ccard--cv reveal" style="--d:.5s" href="assets/CV_Gustave_Soulas_2026.pdf" download data-sfx="confirm">
+      <a class="ccard ccard--cv reveal" style="--d:.22s" href="assets/CV_Gustave_Soulas_2026.pdf" download data-sfx="confirm">
         <em>CV / RESUME</em>
         <b>DOWNLOAD PDF</b>
-        <span>2026 edition · one tap ➤</span>
+        <span>2026 edition ➤</span>
       </a>
-      <div class="ccard ccard--static reveal" style="--d:.58s">
-        <em>BASE</em>
-        <b>Madrid, Spain</b>
-        <span>open to internships &amp; collaborations</span>
-      </div>
+      <a class="ccard reveal" style="--d:.28s" href="https://github.com/gustaveems" target="_blank" rel="noopener" data-sfx="confirm">
+        <em>GITHUB · MAIN</em>
+        <b>github.com/gustaveems</b>
+        <span class="conf__stats" data-gh="gustaveems">…</span>
+      </a>
+      <a class="ccard reveal" style="--d:.34s" href="https://github.com/totallynotgus" target="_blank" rel="noopener" data-sfx="confirm">
+        <em>GITHUB · CAMPUS</em>
+        <b>github.com/totallynotgus</b>
+        <span class="conf__stats" data-gh="totallynotgus">…</span>
+      </a>
+      <a class="ccard reveal" style="--d:.4s" href="mailto:gamsoulas.ieu2024@student.ie.edu" data-sfx="confirm">
+        <em>EMAIL · UNIVERSITY</em>
+        <b>gamsoulas.ieu2024@student.ie.edu</b>
+        <span>IE University ➤</span>
+      </a>
     </div>
   </section>
   </main>
 
   <footer class="foot">
-    <p>© <span id="year">2026</span> GUSTAVE A. M. SOULAS — BUILT WITH HALFTONE, SKEW &amp; SPITE.</p>
+    <p>© <span id="year">2026</span> GUSTAVE A. M. SOULAS — HAND-BUILT IN HTML, CSS &amp; VANILLA JS.</p>
     <p class="foot__jp">PERSONA 5 IS A TRADEMARK OF ATLUS. THIS IS A FAN-STYLED PORTFOLIO.</p>
   </footer>
 
