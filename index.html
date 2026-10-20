@@ -29,14 +29,14 @@
     "@type": "Person",
     "name": "Gustave Soulas",
     "url": "https://gustaveems.github.io/p5-portfolio/",
-    "email": "gustaveams@gmail.com",
+    "email": "gamsoulas.ieu2024@student.ie.edu",
     "address": { "@type": "PostalAddress", "addressLocality": "Madrid", "addressCountry": "ES" },
     "alumniOf": { "@type": "CollegeOrUniversity", "name": "IE University — BSc Computer Science & AI" },
     "knowsAbout": ["Python", "LLM Agents", "Machine Learning", "Full-stack Web", "SQL/PostGIS", "API Integration"],
     "sameAs": [
       "https://github.com/gustaveems",
       "https://github.com/totallynotgus",
-      "https://www.linkedin.com/in/gustave-soulas-8b77002a2"
+      "https://www.linkedin.com/in/gustave-soulas-8b77002a2/"
     ]
   }
   </script>
@@ -113,8 +113,8 @@
 
       <p class="hero__contact cv-only">
         Madrid, Spain ·
-        <a href="mailto:gustaveams@gmail.com">gustaveams@gmail.com</a> ·
-        <a href="https://www.linkedin.com/in/gustave-soulas-8b77002a2" target="_blank" rel="noopener">LinkedIn</a> ·
+        <a href="mailto:gamsoulas.ieu2024@student.ie.edu">gamsoulas.ieu2024@student.ie.edu</a> ·
+        <a href="https://www.linkedin.com/in/gustave-soulas-8b77002a2/" target="_blank" rel="noopener">LinkedIn</a> ·
         <a href="https://github.com/gustaveems" target="_blank" rel="noopener">github.com/gustaveems</a> ·
         <a href="https://gustaveems.github.io/p5-portfolio/" target="_blank" rel="noopener">gustaveems.github.io/p5-portfolio</a>
       </p>
@@ -128,7 +128,7 @@
       <div class="hero__actions reveal" style="--d:.4s">
         <a href="#cv" id="cvOpen" class="btn btn--yellow" data-sfx="confirm">VIEW CV</a>
         <a href="assets/CV_Gustave_Soulas_2026.pdf" class="btn btn--red" download data-sfx="confirm">DOWNLOAD PDF</a>
-        <a href="mailto:gustaveams@gmail.com" class="btn btn--ghost" data-sfx="confirm">EMAIL ME</a>
+        <a href="mailto:gamsoulas.ieu2024@student.ie.edu" class="btn btn--ghost" data-sfx="confirm">EMAIL ME</a>
       </div>
     </div>
 
@@ -277,8 +277,39 @@
         <div class="mission__stamp mission__stamp--gold">ACTIVE<br>QUEST</div>
       </article>
 
-      <article class="mission reveal" style="--d:.18s">
+      <article class="mission reveal" style="--d:.16s">
         <div class="mission__num">03</div>
+        <div class="mission__body">
+          <p class="mission__meta">IE University · 2026 · <b>Software design coursework</b></p>
+          <h3 class="mission__title">SwellSync — Surf &amp; Sail Session Logger</h3>
+          <ul>
+            <li>Single-process <b>Flask + SQLite</b> web app with full CRUD across two linked domains (spots and sessions), cross-domain stats, search, sortable logs and CSV export.</li>
+            <li>Hardened by design: whitelisted sort keys so input never reaches SQL, escaped search wildcards, CSP and security headers on every response, health probe and Dockerised deploy.</li>
+            <li><b>100% business-logic test coverage</b> with pytest, including end-to-end CRUD tests through the Flask test client.</li>
+          </ul>
+          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/swellsync" target="_blank" rel="noopener">Code ↗</a></p>
+          <div class="mission__tags"><span>PYTHON</span><span>FLASK</span><span>SQLITE</span><span>PYTEST</span><span>DOCKER</span></div>
+        </div>
+        <div class="mission__stamp">TREASURE<br>OBTAINED</div>
+      </article>
+
+      <article class="mission reveal" style="--d:.16s">
+        <div class="mission__num">04</div>
+        <div class="mission__body">
+          <p class="mission__meta">Self-directed · 2026 → present · <b>Game development</b></p>
+          <h3 class="mission__title">Fleeting Utility — Narrative Immersive Sim</h3>
+          <ul>
+            <li>Isometric 2.5D narrative game in <b>Godot 4 / GDScript</b>, with the entire world constructed in code rather than hand-placed in the editor.</li>
+            <li>State-machine driven player perception system, shader-based scene transitions and a ticket-by-ticket build pipeline backed by an <b>automated verification harness</b> of scripted probes.</li>
+          </ul>
+          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/fleeting-utility" target="_blank" rel="noopener">Code ↗</a></p>
+          <div class="mission__tags"><span>GODOT 4</span><span>GDSCRIPT</span><span>SHADERS</span><span>STATE MACHINES</span></div>
+        </div>
+        <div class="mission__stamp mission__stamp--gold">ACTIVE<br>QUEST</div>
+      </article>
+
+      <article class="mission reveal" style="--d:.18s">
+        <div class="mission__num">05</div>
         <div class="mission__body">
           <p class="mission__meta">Personal project · 2025 → 2026 · <b>Data-driven full-stack</b></p>
           <h3 class="mission__title">PC Builder Advisor</h3>
@@ -292,7 +323,7 @@
       </article>
 
       <article class="mission reveal" style="--d:.22s">
-        <div class="mission__num">04</div>
+        <div class="mission__num">06</div>
         <div class="mission__body">
           <p class="mission__meta">Self-directed · 2025 → present · <b>Local models</b></p>
           <h3 class="mission__title">Personal Health Dashboard</h3>
@@ -300,14 +331,14 @@
             <li>Self-hosted web app consolidating Fitbit data — sleep, workouts, calories and hobby tracking in one place.</li>
             <li>Calorie tracker on a locally hosted LLM (<b>Ollama</b>): parses free-text food entries into precise calorie &amp; macro breakdowns, zero third-party API dependency.</li>
           </ul>
-          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/Health-Dashboard" target="_blank" rel="noopener">Code ↗</a> <a class="inline-link" href="https://health-dashboard-psi-ten.vercel.app" target="_blank" rel="noopener">Live app ↗</a> <a class="inline-link" href="https://github.com/gustaveems/health-dashboard-lite" target="_blank" rel="noopener">Zero-dep rewrite ↗</a></p>
+          <p class="mission__links"><a class="inline-link" href="https://github.com/gustaveems/health-dashboard-lite" target="_blank" rel="noopener">Code ↗</a> <a class="inline-link" href="https://health-dashboard-psi-ten.vercel.app" target="_blank" rel="noopener">Live app ↗</a> <span>public code is the zero-dependency rewrite: one SQLite file, no cloud</span></p>
           <div class="mission__tags"><span>SELF-HOSTED</span><span>OLLAMA</span><span>FITBIT API</span><span>NEXT.JS</span></div>
         </div>
         <div class="mission__stamp mission__stamp--gold">ACTIVE<br>QUEST</div>
       </article>
 
       <article class="mission reveal" style="--d:.26s">
-        <div class="mission__num">05</div>
+        <div class="mission__num">07</div>
         <div class="mission__body">
           <p class="mission__meta">IE University · 2025 · <b>ML coursework</b></p>
           <h3 class="mission__title">UFC Matchup Prediction</h3>
@@ -377,7 +408,7 @@
         <ul class="links">
           <li><em>English</em><span class="stars" aria-hidden="true">★★★★★</span><b>Native</b></li>
           <li><em>French</em><span class="stars" aria-hidden="true">★★★★★</span><b>Native</b></li>
-          <li><em>Spanish</em><span class="stars" aria-hidden="true">★★★★</span><b>Fluent</b></li>
+          <li><em>Spanish</em><span class="stars" aria-hidden="true">★★★</span><b>Proficient</b></li>
           <li><em>Mandarin</em><span class="stars" aria-hidden="true">★★★</span><b>Proficient</b></li>
           <li><em>Kabyle</em><span class="stars" aria-hidden="true">★★★</span><b>Proficient</b></li>
         </ul>
@@ -412,6 +443,7 @@
           <span class="gear">SQL</span>
           <span class="gear">C</span>
           <span class="gear">Java</span>
+          <span class="gear">GDScript</span>
         </div>
       </div>
       <div class="equip reveal" style="--d:.18s">
@@ -426,16 +458,21 @@
         </div>
       </div>
       <div class="equip reveal" style="--d:.26s">
-        <h3>WEB &amp; DATA</h3>
+        <h3>WEB, DATA &amp; TOOLS</h3>
         <div class="equip__items">
           <span class="gear">Next.js</span>
           <span class="gear">Express</span>
+          <span class="gear">Flask</span>
           <span class="gear">REST APIs</span>
           <span class="gear">PostgreSQL / PostGIS</span>
           <span class="gear">Supabase</span>
+          <span class="gear">SQLite</span>
           <span class="gear">MapLibre</span>
           <span class="gear">Puppeteer</span>
           <span class="gear">n8n</span>
+          <span class="gear">Docker</span>
+          <span class="gear">pytest</span>
+          <span class="gear">Godot 4</span>
           <span class="gear">Git</span>
         </div>
       </div>
@@ -460,12 +497,12 @@
     </header>
 
     <div class="contact-grid">
-      <a class="ccard ccard--red reveal" style="--d:.1s" href="mailto:gustaveams@gmail.com" data-sfx="confirm">
+      <a class="ccard ccard--red reveal" style="--d:.1s" href="mailto:gamsoulas.ieu2024@student.ie.edu" data-sfx="confirm">
         <em>EMAIL</em>
-        <b>gustaveams@gmail.com</b>
+        <b>gamsoulas.ieu2024@student.ie.edu</b>
         <span>replies within 24h ➤</span>
       </a>
-      <a class="ccard reveal" style="--d:.16s" href="https://www.linkedin.com/in/gustave-soulas-8b77002a2" target="_blank" rel="noopener" data-sfx="confirm">
+      <a class="ccard reveal" style="--d:.16s" href="https://www.linkedin.com/in/gustave-soulas-8b77002a2/" target="_blank" rel="noopener" data-sfx="confirm">
         <em>LINKEDIN</em>
         <b>Gustave Soulas</b>
         <span>professional profile ↗</span>
@@ -484,11 +521,6 @@
         <em>GITHUB · CAMPUS</em>
         <b>github.com/totallynotgus</b>
         <span class="conf__stats" data-gh="totallynotgus">…</span>
-      </a>
-      <a class="ccard reveal" style="--d:.4s" href="mailto:gamsoulas.ieu2024@student.ie.edu" data-sfx="confirm">
-        <em>EMAIL · UNIVERSITY</em>
-        <b>gamsoulas.ieu2024@student.ie.edu</b>
-        <span>IE University ➤</span>
       </a>
     </div>
   </section>
